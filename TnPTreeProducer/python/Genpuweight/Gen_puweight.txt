@@ -1,0 +1,106 @@
+pileupCalc.py -i Cert_Collisions2022_355100_362760_Golden.json \
+              --inputLumiJSON pileup_latest.txt \
+              --calcMode true \
+              --minBiasXsec 80000 \
+              --maxPileupBin 100 \
+              --numPileupBins 100 \
+              MyDataPileupHistogram.root
+
+
+  elif era=='2022': return 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions22/Cert_Collisions2022_355100_362760_Golden.json'
+  elif era=='2023': return 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions23/Cert_Collisions2023_366442_370790_Golden.json'
+  # elif era=='2024': return 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions23/Cert_Collisions2023_366442_370790_Golden.json'#tmp
+  # elif era=='2024': return '/eos/user/c/cmsdqm/www/CAF/certification/Collisions24/Cert_Collisions2024_378981_386951_Golden.json'
+  elif era=='2024': return 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/Cert_Collisions2024_378981_386951_Golden.json'
+
+
+ wget https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/Cert_Collisions2024_378981_386951_Golden.json
+ wget  https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/PileUp/pileup_JSON-2024BCDEFGHI.txt
+
+
+wget  https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions23/Cert_Collisions2023_366442_370790_Golden.json
+wget  https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions23/PileUp/BCD/pileup_JSON.txt
+
+
+wget  https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions22/Cert_Collisions2022_355100_362760_Golden.json
+wget  https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions22/PileUp/BCDEFG/pileup_JSON.txt
+mv pileup_JSON.txt.1 pileup_JSON_2022all.txt
+
+pileupCalc.py -i Cert_Collisions2024_378981_386951_Golden.json \
+              --inputLumiJSON pileup_JSON-2024BCDEFGHI.txt \
+              --calcMode true \
+              --minBiasXsec 69200 \
+              --maxPileupBin 100 \
+              --numPileupBins 100 \
+              MyDataPileupHistogram2024.root
+
+pileupCalc.py -i Cert_Collisions2023_366442_370790_Golden.json \
+              --inputLumiJSON pileup_JSON.txt \
+              --calcMode true \
+              --minBiasXsec 69200 \
+              --maxPileupBin 100 \
+              --numPileupBins 100 \
+              MyDataPileupHistogram2023.root
+
+pileupCalc.py -i Cert_Collisions2022_355100_362760_Golden.json \
+              --inputLumiJSON pileup_JSON_2022all.txt \
+              --calcMode true \
+              --minBiasXsec 69200 \
+              --maxPileupBin 100 \
+              --numPileupBins 100 \
+              MyDataPileupHistogram2022.root
+
+
+# 4. 提取为Python列表(为了修改Tnp.../python3/pileupConfiguration_cff.py中的内容)
+python3 -c "
+import ROOT
+f = ROOT.TFile('MyDataPileupHistogram2022.root')
+h = f.Get('pileup')
+dist = [h.GetBinContent(i) for i in range(1, h.GetNbinsX()+1)]
+import json
+with open('MyDataPileupHistogram2022.json', 'w') as f:
+    json.dump(dist, f)
+"
+
+python3 -c "
+import ROOT
+f = ROOT.TFile('MyDataPileupHistogram2023.root')
+h = f.Get('pileup')
+dist = [h.GetBinContent(i) for i in range(1, h.GetNbinsX()+1)]
+import json
+with open('MyDataPileupHistogram2023.json', 'w') as f:
+    json.dump(dist, f)
+"
+
+python3 -c "
+import ROOT
+f = ROOT.TFile('MyDataPileupHistogram2024.root')
+h = f.Get('pileup')
+dist = [h.GetBinContent(i) for i in range(1, h.GetNbinsX()+1)]
+import json
+with open('MyDataPileupHistogram2024.json', 'w') as f:
+    json.dump(dist, f)
+"
+
+
+
+
+
+
+
+
+
+wget  https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions23/PileUp/BCD/pileupHistogram-Cert_Collisions2023_366442_370790_GoldenJson-13p6TeV-66000ub-99bins.root
+
+
+#测试标准的有几个bin和bin的内容
+
+python3 -c "
+import ROOT
+f = ROOT.TFile('pileupHistogram-Cert_Collisions2023_366442_370790_GoldenJson-13p6TeV-66000ub-99bins.root')
+h = f.Get('pileup')
+dist = [h.GetBinContent(i) for i in range(1, h.GetNbinsX()+1)]
+import json
+with open('MyDataPileupHistogram2023_test.json', 'w') as f:
+    json.dump(dist, f)
+"
