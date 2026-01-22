@@ -1,0 +1,1089 @@
+DEBUG 2026-01-21 14:23:35.603 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 14:23:35.603 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 14:23:35.603 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 14:23:35.603 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 14:23:35.603 UTC: 	 Executing command: 'checkwrite'
+DEBUG 2026-01-21 14:23:35.787 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+DEBUG 2026-01-21 14:23:35.906 UTC: 	 Checking credentials
+DEBUG 2026-01-21 14:23:35.907 UTC: 	 Found proxy file /tmp/x509up_u175974
+DEBUG 2026-01-21 14:23:35.907 UTC: 	 Making sure it has proper VOMS extension
+DEBUG 2026-01-21 14:23:35.907 UTC: 	 Executing command :
+ voms-proxy-info --vo --file /tmp/x509up_u175974
+DEBUG 2026-01-21 14:23:36.220 UTC: 	 output : cms
+
+ error: 
+ retcode : 0
+DEBUG 2026-01-21 14:23:36.221 UTC: 	 Getting proxy life time left
+DEBUG 2026-01-21 14:23:36.221 UTC: 	 Executing command :
+ voms-proxy-info --actimeleft --timeleft --file /tmp/x509up_u175974
+DEBUG 2026-01-21 14:23:36.242 UTC: 	 output : 597241
+597241
+
+ error: 
+ retcode : 0
+DEBUG 2026-01-21 14:23:36.242 UTC: 	 Proxy valid for 165:54:01 hours
+DEBUG 2026-01-21 14:23:36.242 UTC: 	 Retrieving username ...
+DEBUG 2026-01-21 14:23:36.242 UTC: 	 Retrieving username from CRIC...
+DEBUG 2026-01-21 14:23:37.113 UTC: 	 username is haozhong
+INFO 2026-01-21 14:23:38.000 UTC: 	 Rucio client intialized for account haozhong
+DEBUG 2026-01-21 14:23:38.000 UTC: 	 Command use: checkwrite
+DEBUG 2026-01-21 14:23:38.000 UTC: 	 Options use: ['--site=T2_CH_CERN', '--lfn=/store/group/phys_egamma/tnpTuples/']
+DEBUG 2026-01-21 14:23:38.000 UTC: 	 Instance is None
+DEBUG 2026-01-21 14:23:38.000 UTC: 	 Server base url is None
+DEBUG 2026-01-21 14:23:38.000 UTC: 	 Retrieving username ...
+DEBUG 2026-01-21 14:23:38.000 UTC: 	 Retrieving username from CRIC...
+DEBUG 2026-01-21 14:23:38.735 UTC: 	 username is haozhong
+INFO 2026-01-21 14:23:38.735 UTC: 	 Validating LFN /store/group/phys_egamma/tnpTuples/...
+INFO 2026-01-21 14:23:38.735 UTC: 	 LFN /store/group/phys_egamma/tnpTuples/ is valid.
+INFO 2026-01-21 14:23:38.749 UTC: 	 Will use `gfal-copy`, `gfal-rm` commands for checking write permissions
+INFO 2026-01-21 14:23:38.749 UTC: 	 Will check write permission in /store/group/phys_egamma/tnpTuples/ on site T2_CH_CERN
+INFO 2026-01-21 14:23:38.780 UTC: 	 Will use PFN: davs://eoscms.cern.ch:443/eos/cms/store/group/phys_egamma/tnpTuples/crab3checkwrite_20260121_152338_d5388bd2-dc74-4574-80e3-d82358ff468c/d5388bd2-dc74-4574-80e3-d82358ff468c.tmp
+INFO 2026-01-21 14:23:38.781 UTC: 	 
+Attempting to create (dummy) directory crab3checkwrite_20260121_152338_d5388bd2-dc74-4574-80e3-d82358ff468c and copy (dummy) file d5388bd2-dc74-4574-80e3-d82358ff468c.tmp to /store/group/phys_egamma/tnpTuples/
+
+INFO 2026-01-21 14:23:38.784 UTC: 	 Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-copy -p -v -t 180 file:///eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/d5388bd2-dc74-4574-80e3-d82358ff468c.tmp 'davs://eoscms.cern.ch:443/eos/cms/store/group/phys_egamma/tnpTuples/crab3checkwrite_20260121_152338_d5388bd2-dc74-4574-80e3-d82358ff468c/d5388bd2-dc74-4574-80e3-d82358ff468c.tmp'
+INFO 2026-01-21 14:23:38.784 UTC: 	 Please wait...
+INFO 2026-01-21 14:23:39.601 UTC: 	 Failed running copy command
+INFO 2026-01-21 14:23:39.601 UTC: 	   Stdout:
+    Copying 85 bytes file:///eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/d5388bd2-dc74-4574-80e3-d82358ff468c.tmp => davs://eoscms.cern.ch:443/eos/cms/store/group/phys_egamma/tnpTuples/crab3checkwrite_20260121_152338_d5388bd2-dc74-4574-80e3-d82358ff468c/d5388bd2-dc74-4574-80e3-d82358ff468c.tmp
+    event: [1769005419534] BOTH   GFAL2:CORE:COPY	LIST:ENTER	
+    event: [1769005419534] BOTH   GFAL2:CORE:COPY	LIST:ITEM	file:///eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/d5388bd2-dc74-4574-80e3-d82358ff468c.tmp => davs://eoscms.cern.ch:443/eos/cms/store/group/phys_egamma/tnpTuples/crab3checkwrite_20260121_152338_d5388bd2-dc74-4574-80e3-d82358ff468c/d5388bd2-dc74-4574-80e3-d82358ff468c.tmp
+    event: [1769005419534] BOTH   GFAL2:CORE:COPY	LIST:EXIT	
+    event: [1769005419534] BOTH   http_plugin	PREPARE:ENTER	file:///eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/d5388bd2-dc74-4574-80e3-d82358ff468c.tmp => davs://eoscms.cern.ch:443/eos/cms/store/group/phys_egamma/tnpTuples/crab3checkwrite_20260121_152338_d5388bd2-dc74-4574-80e3-d82358ff468c/d5388bd2-dc74-4574-80e3-d82358ff468c.tmp
+    
+INFO 2026-01-21 14:23:39.601 UTC: 	   Stderr:
+    gfal-copy error: 1 (Operation not permitted) - DESTINATION MAKE_PARENT HTTP 403 : Permission refused 
+    
+INFO 2026-01-21 14:23:39.602 UTC: 	 
+Checkwrite Result:
+INFO 2026-01-21 14:23:39.602 UTC: 	 Unable to check write permission in /store/group/phys_egamma/tnpTuples/ on site T2_CH_CERN
+Please try again later or contact the site administrators sending them the 'crab checkwrite' output as printed above.
+INFO 2026-01-21 14:23:39.602 UTC: 	 Note: You cannot write to a site if you did not ask permission.
+INFO 2026-01-21 14:23:39.718 UTC: 	 Additional diagnostic info for CERN EOS
+== id ==>:
+uid=175974(haozhong) gid=1399(zh) groups=1399(zh),1097849604 context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+== voms-proxy-info -all ==>:
+subject   : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=haozhong/CN=880682/CN=Haozhong Yang/CN=2928950230
+issuer    : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=haozhong/CN=880682/CN=Haozhong Yang
+identity  : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=haozhong/CN=880682/CN=Haozhong Yang
+type      : RFC compliant proxy
+strength  : 2048 bits
+path      : /tmp/x509up_u175974
+timeleft  : 165:53:58
+key usage : Digital Signature, Key Encipherment
+=== VO cms extension information ===
+VO        : cms
+subject   : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=haozhong/CN=880682/CN=Haozhong Yang
+issuer    : /DC=ch/DC=cern/OU=computers/CN=cms-auth.cern.ch
+attribute : /cms/Role=NULL/Capability=NULL
+timeleft  : 165:53:58
+uri       : voms-cms-auth.cern.ch:15000
+== uberftp eoscmsftp.cern.ch pwd ==>:
+
+WARNING 2026-01-21 14:23:39.719 UTC: 	 Command checkwrite failed
+ERROR 2026-01-21 14:23:39.719 UTC: 	 Caught CommandFailedException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 144, in __call__
+    raise CommandFailedException("Command %s failed" % str(args[0]))
+CRABClient.ClientExceptions.CommandFailedException: Command checkwrite failed
+DEBUG 2026-01-21 14:25:04.764 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 14:25:04.765 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 14:25:04.765 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 14:25:04.765 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 14:25:04.765 UTC: 	 Executing command: 'checkwrite'
+DEBUG 2026-01-21 14:25:04.765 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+DEBUG 2026-01-21 14:25:04.765 UTC: 	 Checking credentials
+DEBUG 2026-01-21 14:25:04.765 UTC: 	 Found proxy file /tmp/x509up_u175974
+DEBUG 2026-01-21 14:25:04.765 UTC: 	 Making sure it has proper VOMS extension
+DEBUG 2026-01-21 14:25:04.766 UTC: 	 Executing command :
+ voms-proxy-info --vo --file /tmp/x509up_u175974
+DEBUG 2026-01-21 14:25:04.793 UTC: 	 output : cms
+
+ error: 
+ retcode : 0
+DEBUG 2026-01-21 14:25:04.793 UTC: 	 Getting proxy life time left
+DEBUG 2026-01-21 14:25:04.793 UTC: 	 Executing command :
+ voms-proxy-info --actimeleft --timeleft --file /tmp/x509up_u175974
+DEBUG 2026-01-21 14:25:04.817 UTC: 	 output : 691163
+691163
+
+ error: 
+ retcode : 0
+DEBUG 2026-01-21 14:25:04.818 UTC: 	 Proxy valid for 191:59:23 hours
+DEBUG 2026-01-21 14:25:04.818 UTC: 	 Retrieving username ...
+DEBUG 2026-01-21 14:25:04.818 UTC: 	 Retrieving username from CRIC...
+DEBUG 2026-01-21 14:25:05.590 UTC: 	 username is haozhong
+INFO 2026-01-21 14:25:06.249 UTC: 	 Rucio client intialized for account haozhong
+DEBUG 2026-01-21 14:25:06.250 UTC: 	 Command use: checkwrite
+DEBUG 2026-01-21 14:25:06.250 UTC: 	 Options use: ['--site=T2_CN_Beijing', '--lfn=/store/group/phys_egamma/tnpTuples/']
+DEBUG 2026-01-21 14:25:06.250 UTC: 	 Instance is None
+DEBUG 2026-01-21 14:25:06.250 UTC: 	 Server base url is None
+DEBUG 2026-01-21 14:25:06.250 UTC: 	 Retrieving username ...
+DEBUG 2026-01-21 14:25:06.250 UTC: 	 Retrieving username from CRIC...
+DEBUG 2026-01-21 14:25:06.997 UTC: 	 username is haozhong
+INFO 2026-01-21 14:25:06.997 UTC: 	 Validating LFN /store/group/phys_egamma/tnpTuples/...
+INFO 2026-01-21 14:25:06.997 UTC: 	 LFN /store/group/phys_egamma/tnpTuples/ is valid.
+INFO 2026-01-21 14:25:07.010 UTC: 	 Will use `gfal-copy`, `gfal-rm` commands for checking write permissions
+INFO 2026-01-21 14:25:07.010 UTC: 	 Will check write permission in /store/group/phys_egamma/tnpTuples/ on site T2_CN_Beijing
+INFO 2026-01-21 14:25:07.705 UTC: 	 Will use PFN: davs://cceos.ihep.ac.cn:9000/eos/ihep/cms/store/group/phys_egamma/tnpTuples/crab3checkwrite_20260121_152507_ae481bdf-62f0-4ff6-8d68-6980b8938df0/ae481bdf-62f0-4ff6-8d68-6980b8938df0.tmp
+INFO 2026-01-21 14:25:07.705 UTC: 	 
+Attempting to create (dummy) directory crab3checkwrite_20260121_152507_ae481bdf-62f0-4ff6-8d68-6980b8938df0 and copy (dummy) file ae481bdf-62f0-4ff6-8d68-6980b8938df0.tmp to /store/group/phys_egamma/tnpTuples/
+
+INFO 2026-01-21 14:25:07.709 UTC: 	 Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-copy -p -v -t 180 file:///eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/ae481bdf-62f0-4ff6-8d68-6980b8938df0.tmp 'davs://cceos.ihep.ac.cn:9000/eos/ihep/cms/store/group/phys_egamma/tnpTuples/crab3checkwrite_20260121_152507_ae481bdf-62f0-4ff6-8d68-6980b8938df0/ae481bdf-62f0-4ff6-8d68-6980b8938df0.tmp'
+INFO 2026-01-21 14:25:07.709 UTC: 	 Please wait...
+INFO 2026-01-21 14:25:11.787 UTC: 	 Failed running copy command
+INFO 2026-01-21 14:25:11.788 UTC: 	   Stdout:
+    Copying 85 bytes file:///eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/ae481bdf-62f0-4ff6-8d68-6980b8938df0.tmp => davs://cceos.ihep.ac.cn:9000/eos/ihep/cms/store/group/phys_egamma/tnpTuples/crab3checkwrite_20260121_152507_ae481bdf-62f0-4ff6-8d68-6980b8938df0/ae481bdf-62f0-4ff6-8d68-6980b8938df0.tmp
+    event: [1769005509996] BOTH   GFAL2:CORE:COPY	LIST:ENTER	
+    event: [1769005509996] BOTH   GFAL2:CORE:COPY	LIST:ITEM	file:///eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/ae481bdf-62f0-4ff6-8d68-6980b8938df0.tmp => davs://cceos.ihep.ac.cn:9000/eos/ihep/cms/store/group/phys_egamma/tnpTuples/crab3checkwrite_20260121_152507_ae481bdf-62f0-4ff6-8d68-6980b8938df0/ae481bdf-62f0-4ff6-8d68-6980b8938df0.tmp
+    event: [1769005509996] BOTH   GFAL2:CORE:COPY	LIST:EXIT	
+    event: [1769005509996] BOTH   http_plugin	PREPARE:ENTER	file:///eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/ae481bdf-62f0-4ff6-8d68-6980b8938df0.tmp => davs://cceos.ihep.ac.cn:9000/eos/ihep/cms/store/group/phys_egamma/tnpTuples/crab3checkwrite_20260121_152507_ae481bdf-62f0-4ff6-8d68-6980b8938df0/ae481bdf-62f0-4ff6-8d68-6980b8938df0.tmp
+    
+INFO 2026-01-21 14:25:11.788 UTC: 	   Stderr:
+    gfal-copy error: 1 (Operation not permitted) - DESTINATION MAKE_PARENT HTTP 403 : Permission refused 
+    
+INFO 2026-01-21 14:25:11.789 UTC: 	 
+Checkwrite Result:
+INFO 2026-01-21 14:25:11.789 UTC: 	 Unable to check write permission in /store/group/phys_egamma/tnpTuples/ on site T2_CN_Beijing
+Please try again later or contact the site administrators sending them the 'crab checkwrite' output as printed above.
+INFO 2026-01-21 14:25:11.789 UTC: 	 Note: You cannot write to a site if you did not ask permission.
+WARNING 2026-01-21 14:25:11.789 UTC: 	 Command checkwrite failed
+ERROR 2026-01-21 14:25:11.789 UTC: 	 Caught CommandFailedException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 144, in __call__
+    raise CommandFailedException("Command %s failed" % str(args[0]))
+CRABClient.ClientExceptions.CommandFailedException: Command checkwrite failed
+DEBUG 2026-01-21 14:55:46.827 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 14:55:46.828 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 14:55:46.827 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 14:55:46.830 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 14:55:46.828 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 14:55:46.848 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 14:55:46.828 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 14:55:46.850 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 14:55:46.827 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 14:55:46.841 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 14:55:46.844 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 14:55:46.830 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 14:55:46.844 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 14:55:46.836 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 14:55:46.827 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 14:55:46.828 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 14:55:46.848 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 14:55:46.828 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 14:55:46.840 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 14:55:46.841 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 14:55:46.841 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 14:55:46.841 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 14:55:46.841 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 14:55:46.841 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 14:55:47.009 UTC: 	 Error: crab_2026_01haozhong/crab_2024_DY_LO_MLL50_2024 is not a valid CRAB project directory.
+DEBUG 2026-01-21 14:55:46.843 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 14:55:46.851 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 14:55:46.827 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 14:55:46.842 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 14:55:46.844 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 14:55:46.831 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 14:55:46.831 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 14:55:46.831 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 14:55:46.831 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+DEBUG 2026-01-21 14:55:46.844 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 14:55:46.836 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 14:55:46.836 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 14:55:46.836 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 14:55:46.836 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 14:55:46.827 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 14:55:46.827 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 14:55:46.827 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 14:55:46.827 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 14:55:46.828 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 14:55:46.923 UTC: 	 Error: crab_2026_01haozhong/crab_2022_EGamma_Run2022D is not a valid CRAB project directory.
+DEBUG 2026-01-21 14:55:46.829 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 14:55:46.848 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 14:55:46.828 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 14:55:46.843 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 14:55:46.851 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 14:55:46.827 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 14:55:46.828 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 14:55:47.008 UTC: 	 Error: crab_2026_01haozhong/crab_2022_EGamma_Run2022E is not a valid CRAB project directory.
+DEBUG 2026-01-21 14:55:46.842 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 14:55:46.844 UTC: 	 Not using Singularity
+ERROR 2026-01-21 14:55:47.008 UTC: 	 Error: crab_2026_01haozhong/crab_2023postBPIX_DY_NLO_2023postBPIX is not a valid CRAB project directory.
+DEBUG 2026-01-21 14:55:46.844 UTC: 	 Not using Singularity
+ERROR 2026-01-21 14:55:47.009 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: crab_2026_01haozhong/crab_2024_DY_LO_MLL50_2024 is not a valid CRAB project directory.
+INFO 2026-01-21 14:55:47.917 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+ERROR 2026-01-21 14:55:47.008 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: crab_2026_01haozhong/crab_2023postBPIX_DY_NLO_2023postBPIX is not a valid CRAB project directory.
+DEBUG 2026-01-21 14:55:46.836 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 14:55:47.008 UTC: 	 Error: crab_2026_01haozhong/crab_2022preEE_DY_LO_2022preEE is not a valid CRAB project directory.
+ERROR 2026-01-21 14:55:46.923 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: crab_2026_01haozhong/crab_2022_EGamma_Run2022D is not a valid CRAB project directory.
+INFO 2026-01-21 14:55:47.938 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 14:55:46.829 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 14:55:46.848 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 14:55:46.848 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 14:55:46.849 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 14:55:47.009 UTC: 	 Error: crab_2026_01haozhong/crab_2022postEE_DY_NLO_2022postEE is not a valid CRAB project directory.
+ERROR 2026-01-21 14:55:47.008 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: crab_2026_01haozhong/crab_2022preEE_DY_LO_2022preEE is not a valid CRAB project directory.
+INFO 2026-01-21 14:55:47.941 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 14:55:46.829 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+DEBUG 2026-01-21 14:55:46.843 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 14:55:46.843 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 14:55:46.843 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 14:55:46.851 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 14:55:46.851 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 14:55:46.851 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 14:55:46.923 UTC: 	 Error: crab_2026_01haozhong/crab_2023postBPIX_DY_LO_2023postBPIX is not a valid CRAB project directory.
+ERROR 2026-01-21 14:55:47.008 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: crab_2026_01haozhong/crab_2022_EGamma_Run2022E is not a valid CRAB project directory.
+INFO 2026-01-21 14:55:47.944 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 14:55:46.842 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 14:55:46.844 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 14:55:46.844 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+INFO 2026-01-21 14:55:47.920 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 14:55:46.829 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 14:55:46.829 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 14:55:46.829 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 14:55:47.008 UTC: 	 Error: crab_2026_01haozhong/crab_2023preBPIX_DY_LO_2023preBPIX is not a valid CRAB project directory.
+ERROR 2026-01-21 14:55:47.008 UTC: 	 Error: crab_2026_01haozhong/crab_2022_EGamma_Run2022C is not a valid CRAB project directory.
+ERROR 2026-01-21 14:55:47.009 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: crab_2026_01haozhong/crab_2022postEE_DY_NLO_2022postEE is not a valid CRAB project directory.
+DEBUG 2026-01-21 14:55:46.843 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+INFO 2026-01-21 14:55:47.960 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+ERROR 2026-01-21 14:55:47.008 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: crab_2026_01haozhong/crab_2023preBPIX_DY_LO_2023preBPIX is not a valid CRAB project directory.
+ERROR 2026-01-21 14:55:47.008 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: crab_2026_01haozhong/crab_2022_EGamma_Run2022C is not a valid CRAB project directory.
+INFO 2026-01-21 14:55:47.962 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+ERROR 2026-01-21 14:55:46.923 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: crab_2026_01haozhong/crab_2023postBPIX_DY_LO_2023postBPIX is not a valid CRAB project directory.
+INFO 2026-01-21 14:55:47.973 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 14:55:46.842 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 14:55:46.842 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+DEBUG 2026-01-21 14:55:46.844 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 14:55:46.844 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 14:55:47.008 UTC: 	 Error: crab_2026_01haozhong/crab_2023preBPIX_DY_NLO_2023preBPIX is not a valid CRAB project directory.
+DEBUG 2026-01-21 14:55:46.844 UTC: 	 Executing command: 'status'
+ERROR 2026-01-21 14:55:47.008 UTC: 	 Error: crab_2026_01haozhong/crab_2022preEE_DY_NLO_2022preEE is not a valid CRAB project directory.
+INFO 2026-01-21 14:55:47.962 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+ERROR 2026-01-21 14:55:47.009 UTC: 	 Error: crab_2026_01haozhong/crab_2024_DY_LO_M50_2024 is not a valid CRAB project directory.
+ERROR 2026-01-21 14:55:47.008 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: crab_2026_01haozhong/crab_2023preBPIX_DY_NLO_2023preBPIX is not a valid CRAB project directory.
+INFO 2026-01-21 14:55:48.002 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+ERROR 2026-01-21 14:55:47.008 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: crab_2026_01haozhong/crab_2022preEE_DY_NLO_2022preEE is not a valid CRAB project directory.
+DEBUG 2026-01-21 14:55:46.844 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+INFO 2026-01-21 14:55:48.003 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+ERROR 2026-01-21 14:55:46.923 UTC: 	 Error: crab_2026_01haozhong/crab_2022postEE_DY_LO_2022postEE is not a valid CRAB project directory.
+ERROR 2026-01-21 14:55:47.009 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: crab_2026_01haozhong/crab_2024_DY_LO_M50_2024 is not a valid CRAB project directory.
+INFO 2026-01-21 14:55:48.024 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+ERROR 2026-01-21 14:55:46.923 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: crab_2026_01haozhong/crab_2022postEE_DY_LO_2022postEE is not a valid CRAB project directory.
+INFO 2026-01-21 14:55:48.030 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:05:53.091 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:05:53.091 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:05:53.091 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:05:53.091 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:05:53.091 UTC: 	 Executing command: 'submit'
+DEBUG 2026-01-21 15:05:53.091 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+INFO 2026-01-21 15:05:53.488 UTC: 	 Will use CRAB configuration file crab_submit_EGamma_Run2022C.py
+DEBUG 2026-01-21 15:05:53.488 UTC: 	 Loading CRAB configuration file.
+DEBUG 2026-01-21 15:05:57.594 UTC: 	 Will use CRAB plugin ANALYSIS (i.e. will run an analysis job type).
+ERROR 2026-01-21 15:05:57.825 UTC: 	 Working area '/eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab_2026_01haozhong/crab_data_EGamma_Run2022C' already exists 
+Please change the requestName in the config file
+ERROR 2026-01-21 15:05:57.825 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/submit.py", line 37, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 328, in __init__
+    self.requestarea, self.requestname, self.logfile = createWorkArea(
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/ClientUtilities.py", line 392, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+CRABClient.ClientExceptions.ConfigException: Working area '/eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab_2026_01haozhong/crab_data_EGamma_Run2022C' already exists 
+Please change the requestName in the config file
+INFO 2026-01-21 15:06:01.089 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:10.912 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:10.913 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:10.913 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:10.913 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:10.913 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:10.913 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:10.913 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023preBPIX_DY_NLO_2023preBPIX is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:10.914 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023preBPIX_DY_NLO_2023preBPIX is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:10.939 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:10.977 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:10.975 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:10.990 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:10.977 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:10.975 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:10.990 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:10.990 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:10.987 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:10.987 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:10.978 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:10.975 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:11.012 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:11.013 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:11.013 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:11.013 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:11.013 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:11.013 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:11.014 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma1_Run2023Cv4 is not a valid CRAB project directory.
+DEBUG 2026-01-21 15:55:10.990 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:10.990 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:10.990 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:10.991 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma0_Run2023Cv1 is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:10.991 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma0_Run2023Cv1 is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:11.033 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:10.987 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:10.978 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:10.978 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:10.978 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:10.978 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022_EGamma_Run2022G is not a valid CRAB project directory.
+DEBUG 2026-01-21 15:55:10.975 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:10.975 UTC: 	 Executing command: 'status'
+ERROR 2026-01-21 15:55:11.014 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma1_Run2023Cv4 is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:10.978 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022_EGamma_Run2022G is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:11.057 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:11.017 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:11.018 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:10.987 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:10.987 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:11.023 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:10.976 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+INFO 2026-01-21 15:55:11.057 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:11.018 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:11.018 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:10.987 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:10.988 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2024_DY_LO_M50_2024 is not a valid CRAB project directory.
+DEBUG 2026-01-21 15:55:11.024 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+ERROR 2026-01-21 15:55:10.976 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022preEE_DY_LO_2022preEE is not a valid CRAB project directory.
+DEBUG 2026-01-21 15:55:11.027 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:11.070 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:11.070 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:11.070 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:11.070 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:11.070 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:11.070 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:11.071 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023postBPIX_DY_LO_2023postBPIX is not a valid CRAB project directory.
+DEBUG 2026-01-21 15:55:11.018 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:11.018 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:11.019 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022postEE_DY_NLO_2022postEE is not a valid CRAB project directory.
+DEBUG 2026-01-21 15:55:11.024 UTC: 	 Not using Singularity
+ERROR 2026-01-21 15:55:10.978 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022preEE_DY_LO_2022preEE is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:10.988 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2024_DY_LO_M50_2024 is not a valid CRAB project directory.
+DEBUG 2026-01-21 15:55:11.028 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+ERROR 2026-01-21 15:55:11.071 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023postBPIX_DY_LO_2023postBPIX is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:11.136 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+ERROR 2026-01-21 15:55:11.019 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022postEE_DY_NLO_2022postEE is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:11.137 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:11.024 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+INFO 2026-01-21 15:55:11.135 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+INFO 2026-01-21 15:55:11.135 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:11.028 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:11.024 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:11.024 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:11.025 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma1_Run2023Dv1 is not a valid CRAB project directory.
+DEBUG 2026-01-21 15:55:11.028 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:11.028 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:11.028 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:11.029 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma1_Run2023Cv1 is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:11.029 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma1_Run2023Cv1 is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:11.153 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+ERROR 2026-01-21 15:55:11.026 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma1_Run2023Dv1 is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:11.172 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:11.261 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:11.261 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:11.261 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:11.261 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:11.261 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:11.261 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:11.262 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma1_Run2023Cv3 is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:11.262 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma1_Run2023Cv3 is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:11.269 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:11.252 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:11.253 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:11.253 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:11.253 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:11.253 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:11.253 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:11.253 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022_EGamma_Run2022E is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:11.254 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022_EGamma_Run2022E is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:11.295 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:11.712 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:11.713 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:11.713 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:11.713 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:11.713 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:11.713 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:11.713 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022preEE_DY_NLO_2022preEE is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:11.714 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022preEE_DY_NLO_2022preEE is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:11.721 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:11.744 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:11.745 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:11.745 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:11.745 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:11.745 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:11.745 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:11.746 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma0_Run2023Cv2 is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:11.746 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma0_Run2023Cv2 is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:11.775 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:11.816 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:11.816 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:11.816 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:11.816 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:11.816 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:11.816 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:11.817 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma0_Run2023Dv2 is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:11.817 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma0_Run2023Dv2 is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:11.829 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:11.892 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:11.892 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:11.892 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:11.971 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:11.971 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:11.971 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:11.971 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:11.971 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:11.971 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:11.972 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022_EGamma_Run2022D is not a valid CRAB project directory.
+DEBUG 2026-01-21 15:55:11.892 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+ERROR 2026-01-21 15:55:11.972 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022_EGamma_Run2022D is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:12.075 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:11.892 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:12.016 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:12.017 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:12.017 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:12.017 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:12.017 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:12.017 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:12.017 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma0_Run2023Cv3 is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:12.018 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma0_Run2023Cv3 is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:12.196 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:11.892 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:11.893 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023preBPIX_DY_LO_2023preBPIX is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:11.893 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023preBPIX_DY_LO_2023preBPIX is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:12.204 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:12.021 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:12.082 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:12.082 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:12.160 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:12.161 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:12.161 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:12.089 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:12.089 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:12.038 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:12.022 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:12.022 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:12.082 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:12.161 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:12.089 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:12.038 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:12.112 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:12.242 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:12.022 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:12.314 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:12.315 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:12.082 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:12.161 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:12.276 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:55:12.089 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:12.038 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:12.112 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:12.242 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:12.022 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:12.242 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:12.022 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+DEBUG 2026-01-21 15:55:12.315 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:12.315 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:12.315 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:12.082 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:12.161 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+DEBUG 2026-01-21 15:55:12.276 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:55:12.089 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:12.038 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:12.112 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:12.242 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+ERROR 2026-01-21 15:55:12.022 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2024_DY_LO_MLL50_2024 is not a valid CRAB project directory.
+DEBUG 2026-01-21 15:55:12.315 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+DEBUG 2026-01-21 15:55:12.082 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:12.083 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022postEE_DY_LO_2022postEE is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:12.161 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022_EGamma_Run2022C is not a valid CRAB project directory.
+DEBUG 2026-01-21 15:55:12.276 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:55:12.089 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+DEBUG 2026-01-21 15:55:12.038 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:12.112 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:55:12.242 UTC: 	 Executing command: 'status'
+ERROR 2026-01-21 15:55:12.315 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma0_Run2023Dv1 is not a valid CRAB project directory.
+DEBUG 2026-01-21 15:55:12.276 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+ERROR 2026-01-21 15:55:12.090 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma0_Run2023Cv4 is not a valid CRAB project directory.
+DEBUG 2026-01-21 15:55:12.038 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+DEBUG 2026-01-21 15:55:12.112 UTC: 	 Executing command: 'status'
+DEBUG 2026-01-21 15:55:12.242 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:12.023 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2024_DY_LO_MLL50_2024 is not a valid CRAB project directory.
+DEBUG 2026-01-21 15:55:12.276 UTC: 	 Executing command: 'status'
+ERROR 2026-01-21 15:55:12.038 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma1_Run2023Dv2 is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:12.083 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022postEE_DY_LO_2022postEE is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:12.161 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022_EGamma_Run2022C is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:12.628 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:12.112 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:12.243 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma1_Run2023Cv2 is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:12.627 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:55:12.276 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+ERROR 2026-01-21 15:55:12.316 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma0_Run2023Dv1 is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:12.090 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma0_Run2023Cv4 is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:12.627 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+ERROR 2026-01-21 15:55:12.039 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma1_Run2023Dv2 is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:12.642 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+ERROR 2026-01-21 15:55:12.243 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023_EGamma1_Run2023Cv2 is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:12.642 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+ERROR 2026-01-21 15:55:12.113 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022_EGamma_Run2022F is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:12.277 UTC: 	 Error: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023postBPIX_DY_NLO_2023postBPIX is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:12.641 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+INFO 2026-01-21 15:55:12.641 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+ERROR 2026-01-21 15:55:12.113 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2022_EGamma_Run2022F is not a valid CRAB project directory.
+ERROR 2026-01-21 15:55:12.277 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/status.py", line 50, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 281, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 691, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: /store/group/phys_egamma/tnpTuples/haozhong/2026_01haozhong/crab_2026_01haozhong/crab_2023postBPIX_DY_NLO_2023postBPIX is not a valid CRAB project directory.
+INFO 2026-01-21 15:55:12.649 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+INFO 2026-01-21 15:55:12.650 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+DEBUG 2026-01-21 15:56:25.613 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 15:56:25.613 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 15:56:25.613 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 15:56:25.613 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 15:56:25.613 UTC: 	 Executing command: 'submit'
+DEBUG 2026-01-21 15:56:25.614 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+INFO 2026-01-21 15:56:25.614 UTC: 	 Will use CRAB configuration file crab_submit_EGamma_Run2022C.py
+DEBUG 2026-01-21 15:56:25.614 UTC: 	 Loading CRAB configuration file.
+DEBUG 2026-01-21 15:56:25.711 UTC: 	 Will use CRAB plugin ANALYSIS (i.e. will run an analysis job type).
+ERROR 2026-01-21 15:56:25.720 UTC: 	 Unhandled Exception!
+ERROR 2026-01-21 15:56:25.720 UTC: 	 [Errno 13] Permission denied: '/store'
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/submit.py", line 37, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 328, in __init__
+    self.requestarea, self.requestname, self.logfile = createWorkArea(
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/ClientUtilities.py", line 384, in createWorkArea
+    os.makedirs(workingArea)
+  File "/cvmfs/cms.cern.ch/el8_amd64_gcc12/cms/cmssw/CMSSW_14_0_19/external/el8_amd64_gcc12/bin/../../../../../../../el8_amd64_gcc12/external/python3/3.9.14-4612d00f9f0430a19291545f1e47b4a4/lib/python3.9/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/cvmfs/cms.cern.ch/el8_amd64_gcc12/cms/cmssw/CMSSW_14_0_19/external/el8_amd64_gcc12/bin/../../../../../../../el8_amd64_gcc12/external/python3/3.9.14-4612d00f9f0430a19291545f1e47b4a4/lib/python3.9/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/cvmfs/cms.cern.ch/el8_amd64_gcc12/cms/cmssw/CMSSW_14_0_19/external/el8_amd64_gcc12/bin/../../../../../../../el8_amd64_gcc12/external/python3/3.9.14-4612d00f9f0430a19291545f1e47b4a4/lib/python3.9/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  [Previous line repeated 2 more times]
+  File "/cvmfs/cms.cern.ch/el8_amd64_gcc12/cms/cmssw/CMSSW_14_0_19/external/el8_amd64_gcc12/bin/../../../../../../../el8_amd64_gcc12/external/python3/3.9.14-4612d00f9f0430a19291545f1e47b4a4/lib/python3.9/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/store'
+ERROR 2026-01-21 15:56:25.723 UTC: 	 ERROR: PermissionError: [Errno 13] Permission denied: '/store'
+ERROR 2026-01-21 15:56:25.724 UTC: 	 
+ Look for more details in crab.log file /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log
+ERROR 2026-01-21 15:56:25.724 UTC: 	   If you can't figure out the problem, please send email to
+ERROR 2026-01-21 15:56:25.724 UTC: 	 	cmstalk+computing-tools@dovecotmta.cern.ch with the crab.log file or crab.log URL.
+ERROR 2026-01-21 15:56:25.725 UTC: 	   Please use 'crab uploadlog' to upload the log file /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log to the CRAB cache.
+DEBUG 2026-01-21 16:07:24.486 UTC: 	 CRAB Client version: v3.251020
+DEBUG 2026-01-21 16:07:24.486 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.94.1.el8_10.x86_64 #1 SMP Tue Jan 13 00:47:51 EST 2026 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2026-01-21 16:07:24.486 UTC: 	 Not using Singularity
+DEBUG 2026-01-21 16:07:24.486 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2026-01-21 16:07:24.486 UTC: 	 Executing command: 'submit'
+DEBUG 2026-01-21 16:07:24.486 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/haozhong/.crab3
+INFO 2026-01-21 16:07:24.487 UTC: 	 Will use CRAB configuration file crab_submit_EGamma_Run2022C.py
+DEBUG 2026-01-21 16:07:24.487 UTC: 	 Loading CRAB configuration file.
+DEBUG 2026-01-21 16:07:24.724 UTC: 	 Will use CRAB plugin ANALYSIS (i.e. will run an analysis job type).
+ERROR 2026-01-21 16:07:24.743 UTC: 	 Working area '/eos/user/h/haozhong/diele_HLT_sf/Ntuples/crab_2026_01haozhong/crab_data_EGamma_Run2022C' already exists 
+Please change the requestName in the config file
+ERROR 2026-01-21 16:07:24.743 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 157, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])  # the crab command to be executed
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/submit.py", line 37, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/Commands/SubCommand.py", line 328, in __init__
+    self.requestarea, self.requestname, self.logfile = createWorkArea(
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.251020.00/lib/CRABClient/ClientUtilities.py", line 392, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+CRABClient.ClientExceptions.ConfigException: Working area '/eos/user/h/haozhong/diele_HLT_sf/Ntuples/crab_2026_01haozhong/crab_data_EGamma_Run2022C' already exists 
+Please change the requestName in the config file
+INFO 2026-01-21 16:07:24.781 UTC: 	 Log file is /eos/home-h/haozhong/diele_HLT_sf/CMSSW_14_0_19/src/EgammaAnalysis/TnPTreeProducer/crab/crab.log

@@ -28,6 +28,7 @@ filesMiniAOD_2023postBPIX = {
     'mc' : cms.untracked.vstring('/store/mc/Run3Summer23BPixMiniAODv4/DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/MINIAODSIM/130X_mcRun3_2023_realistic_postBPix_v2-v3/50001/9ffc5afa-1d8c-4370-a9dd-5464a372770b.root')
 }
 filesMiniAOD_2024 = {
+    # 'data' :cms.untracked.vstring('/store/mc/Run3Winter24MiniAOD/DYto2L_M-50_TuneCP5_13p6TeV_pythia8/MINIAODSIM/KeepSi_133X_mcRun3_2024_realistic_v8-v2/2560000/7c936ae9-2ac8-409c-b7ac-3e9f7b05ddae.root'),
     'mc' : cms.untracked.vstring('/store/mc/Run3Winter24MiniAOD/DYto2L_M-50_TuneCP5_13p6TeV_pythia8/MINIAODSIM/KeepSi_133X_mcRun3_2024_realistic_v8-v2/2560000/7c936ae9-2ac8-409c-b7ac-3e9f7b05ddae.root')
 }
 

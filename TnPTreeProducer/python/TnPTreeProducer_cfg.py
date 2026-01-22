@@ -92,7 +92,7 @@ options['isMC']                 = varOptions.isMC
 options['UseCalibEn']           = varOptions.calibEn
 options['addSUSY']              = varOptions.includeSUSY and not options['useAOD']
 
-options['OUTPUT_FILE_NAME']     = "TnPTree_%s.root" % ("mc" if options['isMC'] else "data")
+options['OUTPUT_FILE_NAME']     = varOptions.outputFile #"TnPTree_%s.root" % ("mc" if options['isMC'] else "data")
 
 log.info('outputfile: %s' % options['OUTPUT_FILE_NAME'])
 
@@ -124,7 +124,7 @@ if varOptions.GT == "auto":
     #if options['era'] == '2022': options['GLOBALTAG'] = '123X_dataRun3_Prompt_v12'
     if options['era'] == '2022': options['GLOBALTAG'] = '124X_dataRun3_Prompt_v10' #update GT for 2022 from PDMV
     if options['era'] == '2023': options['GLOBALTAG'] = '130X_dataRun3_Prompt_v4' #update GT for 2023 from PDMV
-    if options['era'] == '2024': options['GLOBALTAG'] = '133X_mcRun3_2024_realistic_v8'
+    # if options['era'] == '2024': options['GLOBALTAG'] = '133X_mcRun3_2024_realistic_v8'???????
 else:
   options['GLOBALTAG'] = varOptions.GT
 
