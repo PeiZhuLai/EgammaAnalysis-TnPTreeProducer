@@ -122,7 +122,7 @@ if varOptions.GT == "auto":
     if options['era'] == 'UL2017': options['GLOBALTAG'] = '106X_mc2017_realistic_v7'
     if options['era'] == 'UL2018': options['GLOBALTAG'] = '106X_upgrade2018_realistic_v11_L1v1'
     #if options['era'] == '2022': options['GLOBALTAG'] = '123X_dataRun3_Prompt_v12'
-    if options['era'] == '2022': options['GLOBALTAG'] = '124X_dataRun3_Prompt_v10' #update GT for 2022 from PDMV
+    if options['era'] == '2022': options['GLOBALTAG'] = '124X_dataRun3_v10'#'124X_dataRun3_Prompt_v10' #update GT for 2022 from PDMV
     if options['era'] == '2023': options['GLOBALTAG'] = '130X_dataRun3_Prompt_v4' #update GT for 2023 from PDMV
     # if options['era'] == '2024': options['GLOBALTAG'] = '133X_mcRun3_2024_realistic_v8'???????
 else:
@@ -218,11 +218,23 @@ options['L1Threshold']          = varOptions.L1Threshold
 ###################################################################
 ## Define input files for test local run
 ###################################################################
-importTestFiles = 'from EgammaAnalysis.TnPTreeProducer.etc.tnpInputTestFiles_cff import files%s_%s as inputs' % ('AOD' if options['useAOD'] else 'MiniAOD', options['era'])
-exec(importTestFiles)
+# importTestFiles = 'from EgammaAnalysis.TnPTreeProducer.etc.tnpInputTestFiles_cff import files%s_%s as inputs' % ('AOD' if options['useAOD'] else 'MiniAOD', options['era'])
+# exec(importTestFiles)
 
-options['INPUT_FILE_NAME'] = inputs['mc' if options['isMC'] else 'data']
-
+# options['INPUT_FILE_NAME'] = inputs['mc' if options['isMC'] else 'data']
+# 首先检查是否有命令行指定的输入文件
+if varOptions.inputFiles and len(varOptions.inputFiles) > 0:
+    # options['INPUT_FILE_NAME'] = varOptions.inputFiles
+    input_files = varOptions.inputFiles
+    options['INPUT_FILE_NAME'] = cms.untracked.vstring(list(input_files))
+    
+    log.info('Using user-specified input files: %s' % varOptions.inputFiles)
+# else: #只有测试的时候用
+    # # 如果没有命令行输入，使用默认的测试文件
+    # importTestFiles = 'from EgammaAnalysis.TnPTreeProducer.etc.tnpInputTestFiles_cff import files%s_%s as inputs' % ('AOD' if options['useAOD'] else 'MiniAOD', options['era'])
+    # exec(importTestFiles)
+    # options['INPUT_FILE_NAME'] = inputs['mc' if options['isMC'] else 'data']
+    # log.info('Using default test files for era %s' % options['era'])
 ###################################################################
 ## Standard imports, GT and pile-up
 ###################################################################
@@ -282,7 +294,7 @@ if not options['useAOD']:
 process.options   = cms.untracked.PSet( wantSummary = cms.untracked.bool(False) )
 
 process.MessageLogger.cerr.threshold = ''
-process.MessageLogger.cerr.FwkReport.reportEvery = 10
+process.MessageLogger.cerr.FwkReport.reportEvery = 10000
 
 process.source = cms.Source("PoolSource", fileNames = options['INPUT_FILE_NAME'])
 process.maxEvents = cms.untracked.PSet( input = options['MAXEVENTS'])

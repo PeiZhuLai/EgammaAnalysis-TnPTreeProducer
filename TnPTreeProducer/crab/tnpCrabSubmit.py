@@ -134,7 +134,7 @@ if isReleaseAbove(12,4):
   era       = '2022'
   eraPre  = '2022preEE'
   eraPost = '2022postEE'
-  # submitWrapper('EGamma_Run2022B',     '/EGamma/Run2022C-27Jun2023-v1/MINIAOD', era)
+  submitWrapper('EGamma_Run2022B',     '/EGamma/Run2022B-27Jun2023-v2/MINIAOD', era)
   submitWrapper('EGamma_Run2022C',     '/EGamma/Run2022C-27Jun2023-v1/MINIAOD', era)
   submitWrapper('EGamma_Run2022D',     '/EGamma/Run2022D-27Jun2023-v2/MINIAOD', era)
 
