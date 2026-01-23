@@ -31,10 +31,7 @@ error = $(logdir)/$(jobname).err
 log = $(logdir)/$(jobname).log
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
-transfer_input_files = $(inputfiles)
-transfer_output_files = $(outputfiles)
 +JobFlavour = "workday"
-+AccountingGroup = "group_u_CMST3.all"
 request_cpus = 1
 request_memory = 2000
 request_disk = 2000
@@ -142,6 +139,7 @@ def submit_htcondor(requestName, sample, era, extraParam=[]):
 cd {cmssw_base}
 eval `scramv1 runtime -sh`
 cd -
+export X509_USER_PROXY=/eos/user/h/haozhong/my_x509_user_proxy
 # 获取参数
 INPUT_FILES=$1
 OUTPUT_FILE=$2
@@ -162,7 +160,7 @@ cmsRun {cmssw_base}/src/EgammaAnalysis/TnPTreeProducer/python/TnPTreeProducer_cf
     os.system(f'chmod +x {job_script_path}')
     
     # Submit jobs - one per file for MC, grouped for data
-    jobs_per_submission = 80 if isMC else 80  # Group data files############################################
+    jobs_per_submission = 16 if isMC else 32  # Group data files############################################
     
     condor_submit_file = f'{config_dir}/condor_submit.sub'
     
@@ -171,16 +169,16 @@ cmsRun {cmssw_base}/src/EgammaAnalysis/TnPTreeProducer/python/TnPTreeProducer_cf
         f.write('arguments = $(inputfile) $(outputfile)\n')
         f.write('output = ' + log_dir + '/$(ClusterId).$(ProcId).out\n')
         f.write('error = ' + log_dir + '/$(ClusterId).$(ProcId).err\n')
-        f.write('log = ' + log_dir + '/$(ClusterId).$(ProcId).log\n')
+        f.write('log = ' + log_dir + '/$(ClusterId).log\n')
         f.write('should_transfer_files = YES\n')
         f.write('when_to_transfer_output = ON_EXIT\n')
         # f.write('transfer_input_files = \n')
         # f.write('transfer_output_files = $(outputfile)\n')
         f.write('+JobFlavour = "testmatch"\n')
-        # f.write('+AccountingGroup = "group_u_CMST3.all"\n')
+        # f.write('+AccountingGroup = "group_u_CMST3.all"\n')#do not need it
         f.write('request_cpus = 1\n')
-        f.write('request_memory = 3GB\n')
-        f.write('request_disk = 5GB\n')
+        f.write('request_memory = 2.3GB\n')#1.5 is ok
+        f.write('request_disk = 0.5GB\n')#0.05 is ok but too small
         f.write('queue outputfile,inputfile from job_list.txt\n')
     
     # Create job list
@@ -256,47 +254,47 @@ if __name__ == "__main__":
     from EgammaAnalysis.TnPTreeProducer.cmssw_version import isReleaseAbove
     
     if isReleaseAbove(12,4):
-        era = '2022'
-        eraPre = '2022preEE'
-        eraPost = '2022postEE'
+        # era = '2022'
+        # eraPre = '2022preEE'
+        # eraPost = '2022postEE'
         
-        # Data samples
-        # submitWrapper('', '', era)
-        submitWrapper('EGamma_Run2022B', '/EGamma/Run2022B-27Jun2023-v2/MINIAOD', era)
-        submitWrapper('EGamma_Run2022C', '/EGamma/Run2022C-27Jun2023-v1/MINIAOD', era)
-        submitWrapper('EGamma_Run2022D', '/EGamma/Run2022D-27Jun2023-v2/MINIAOD', era)
-        submitWrapper('EGamma_Run2022E', '/EGamma/Run2022E-27Jun2023-v1/MINIAOD', era)
-        # submitWrapper('EGamma_Run2022F', '/EGamma/Run2022F-PromptReco-v1/MINIAOD', era)
+        # # Data samples
+        # # submitWrapper('', '', era)
+        # submitWrapper('EGamma_Run2022B', '/EGamma/Run2022B-27Jun2023-v2/MINIAOD', era)
+        # submitWrapper('EGamma_Run2022C', '/EGamma/Run2022C-27Jun2023-v1/MINIAOD', era)
+        # submitWrapper('EGamma_Run2022D', '/EGamma/Run2022D-27Jun2023-v2/MINIAOD', era)
+        # submitWrapper('EGamma_Run2022E', '/EGamma/Run2022E-27Jun2023-v1/MINIAOD', era)
+        # # submitWrapper('EGamma_Run2022F', '/EGamma/Run2022F-PromptReco-v1/MINIAOD', era)
         
-        submitWrapper('EGamma_Run2022F', '/EGamma/Run2022F-22Sep2023-v1/MINIAOD', era)
-        submitWrapper('EGamma_Run2022G', '/EGamma/Run2022G-22Sep2023-v2/MINIAOD', era)
-        # submitWrapper('EGamma_Run2022G', '/EGamma/Run2022G-PromptReco-v1/MINIAOD', era)
+        # submitWrapper('EGamma_Run2022F', '/EGamma/Run2022F-22Sep2023-v1/MINIAOD', era)
+        # submitWrapper('EGamma_Run2022G', '/EGamma/Run2022G-22Sep2023-v2/MINIAOD', era)
+        # # submitWrapper('EGamma_Run2022G', '/EGamma/Run2022G-PromptReco-v1/MINIAOD', era)
         
-        # MC samples
-        submitWrapper(f'DY_LO_{eraPre}', '/DYJetsToLL_M-50_TuneCP5_13p6TeV-madgraphMLM-pythia8/Run3Summer22MiniAODv4-forPOG_130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM', eraPre)
-        submitWrapper(f'DY_LO_{eraPost}', '/DYJetsToLL_M-50_TuneCP5_13p6TeV-madgraphMLM-pythia8/Run3Summer22EEMiniAODv4-forPOG_130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM', eraPost)
-        # submitWrapper(f'DY_NLO_{eraPre}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM', eraPre)
-        submitWrapper(f'DY_NLO_{eraPre}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v5/MINIAODSIM', eraPre)
-        submitWrapper(f'DY_NLO_{eraPost}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v5/MINIAODSIM', eraPost)
-        # submitWrapper(f'DY_NLO_{eraPost}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM', eraPost)
+        # # MC samples
+        # submitWrapper(f'DY_LO_{eraPre}', '/DYJetsToLL_M-50_TuneCP5_13p6TeV-madgraphMLM-pythia8/Run3Summer22MiniAODv4-forPOG_130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM', eraPre)
+        # submitWrapper(f'DY_LO_{eraPost}', '/DYJetsToLL_M-50_TuneCP5_13p6TeV-madgraphMLM-pythia8/Run3Summer22EEMiniAODv4-forPOG_130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM', eraPost)
+        # # submitWrapper(f'DY_NLO_{eraPre}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM', eraPre)
+        # submitWrapper(f'DY_NLO_{eraPre}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v5/MINIAODSIM', eraPre)
+        # submitWrapper(f'DY_NLO_{eraPost}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v5/MINIAODSIM', eraPost)
+        # # submitWrapper(f'DY_NLO_{eraPost}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM', eraPost)
 
         era = '2023'
         eraPre = '2023preBPIX'
         eraPost = '2023postBPIX'
         
-        # Data samples
-        submitWrapper('EGamma0_Run2023Cv1', '/EGamma0/Run2023C-PromptReco-v1/MINIAOD', era)
-        submitWrapper('EGamma0_Run2023Cv2', '/EGamma0/Run2023C-PromptReco-v2/MINIAOD', era)
-        submitWrapper('EGamma0_Run2023Cv3', '/EGamma0/Run2023C-PromptReco-v3/MINIAOD', era)
-        submitWrapper('EGamma0_Run2023Cv4', '/EGamma0/Run2023C-PromptReco-v4/MINIAOD', era)
-        submitWrapper('EGamma1_Run2023Cv1', '/EGamma1/Run2023C-PromptReco-v1/MINIAOD', era)
-        submitWrapper('EGamma1_Run2023Cv2', '/EGamma1/Run2023C-PromptReco-v2/MINIAOD', era)
-        submitWrapper('EGamma1_Run2023Cv3', '/EGamma1/Run2023C-PromptReco-v3/MINIAOD', era)
-        submitWrapper('EGamma1_Run2023Cv4', '/EGamma1/Run2023C-PromptReco-v4/MINIAOD', era)
-        submitWrapper('EGamma0_Run2023Dv1', '/EGamma0/Run2023D-PromptReco-v1/MINIAOD', era)
-        submitWrapper('EGamma0_Run2023Dv2', '/EGamma0/Run2023D-PromptReco-v2/MINIAOD', era)
-        submitWrapper('EGamma1_Run2023Dv1', '/EGamma1/Run2023D-PromptReco-v1/MINIAOD', era)
-        submitWrapper('EGamma1_Run2023Dv2', '/EGamma1/Run2023D-PromptReco-v2/MINIAOD', era)
+        # # Data samples
+        # submitWrapper('EGamma0_Run2023Cv1', '/EGamma0/Run2023C-PromptReco-v1/MINIAOD', era)
+        # submitWrapper('EGamma0_Run2023Cv2', '/EGamma0/Run2023C-PromptReco-v2/MINIAOD', era)
+        # submitWrapper('EGamma0_Run2023Cv3', '/EGamma0/Run2023C-PromptReco-v3/MINIAOD', era)
+        # submitWrapper('EGamma0_Run2023Cv4', '/EGamma0/Run2023C-PromptReco-v4/MINIAOD', era)
+        # submitWrapper('EGamma1_Run2023Cv1', '/EGamma1/Run2023C-PromptReco-v1/MINIAOD', era)
+        # submitWrapper('EGamma1_Run2023Cv2', '/EGamma1/Run2023C-PromptReco-v2/MINIAOD', era)
+        # submitWrapper('EGamma1_Run2023Cv3', '/EGamma1/Run2023C-PromptReco-v3/MINIAOD', era)
+        # submitWrapper('EGamma1_Run2023Cv4', '/EGamma1/Run2023C-PromptReco-v4/MINIAOD', era)
+        # submitWrapper('EGamma0_Run2023Dv1', '/EGamma0/Run2023D-PromptReco-v1/MINIAOD', era)
+        # submitWrapper('EGamma0_Run2023Dv2', '/EGamma0/Run2023D-PromptReco-v2/MINIAOD', era)
+        # submitWrapper('EGamma1_Run2023Dv1', '/EGamma1/Run2023D-PromptReco-v1/MINIAOD', era)
+        # submitWrapper('EGamma1_Run2023Dv2', '/EGamma1/Run2023D-PromptReco-v2/MINIAOD', era)
         
         # MC samples
         # submitWrapper(f'DY_LO_{eraPre}', '/DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v1/MINIAODSIM', eraPre)
@@ -309,27 +307,30 @@ if __name__ == "__main__":
         # submitWrapper(f'DY_NLO_{eraPost}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v3/MINIAODSIM', eraPost)
 
         era = '2024'
-        submitWrapper('', '/EGamma0/Run2024B-PromptReco-v1/MINIAOD', era)
-        submitWrapper('', '/EGamma1/Run2024B-PromptReco-v1/MINIAOD', era)
-        submitWrapper('', '/EGamma0/Run2024C-MINIv6NANOv15-v1/MINIAOD', era)
-        submitWrapper('', '/EGamma1/Run2024C-MINIv6NANOv15-v1/MINIAOD', era)
-        submitWrapper('', '/EGamma0/Run2024D-MINIv6NANOv15-v1/MINIAOD', era)
-        submitWrapper('', '/EGamma1/Run2024D-MINIv6NANOv15-v1/MINIAOD', era)
-        submitWrapper('', '/EGamma0/Run2024E-MINIv6NANOv15-v1/MINIAOD', era)
-        submitWrapper('', '/EGamma1/Run2024E-MINIv6NANOv15-v1/MINIAOD', era)
-        submitWrapper('', '/EGamma0/Run2024F-MINIv6NANOv15-v1/MINIAOD', era)
-        submitWrapper('', '/EGamma1/Run2024F-MINIv6NANOv15-v1/MINIAOD', era)
-        submitWrapper('', '/EGamma0/Run2024G-MINIv6NANOv15-v2/MINIAOD', era)
-        submitWrapper('', '/EGamma1/Run2024G-MINIv6NANOv15-v2/MINIAOD', era)
-        submitWrapper('', '/EGamma0/Run2024H-MINIv6NANOv15-v2/MINIAOD', era)
-        submitWrapper('', '/EGamma1/Run2024H-MINIv6NANOv15-v2/MINIAOD', era)
-        submitWrapper('', '/EGamma0/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD', era)
-        submitWrapper('', '/EGamma1/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD', era)
+        submitWrapper('EGamma0_Run2024B', '/EGamma0/Run2024B-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma1_Run2024B', '/EGamma1/Run2024B-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma0_Run2024C', '/EGamma0/Run2024C-MINIv6NANOv15-v1/MINIAOD', era)
+        submitWrapper('EGamma1_Run2024C', '/EGamma1/Run2024C-MINIv6NANOv15-v1/MINIAOD', era)
+        submitWrapper('EGamma0_Run2024D', '/EGamma0/Run2024D-MINIv6NANOv15-v1/MINIAOD', era)
+        submitWrapper('EGamma1_Run2024D', '/EGamma1/Run2024D-MINIv6NANOv15-v1/MINIAOD', era)
+        submitWrapper('EGamma0_Run2024E', '/EGamma0/Run2024E-MINIv6NANOv15-v1/MINIAOD', era)
+        submitWrapper('EGamma1_Run2024E', '/EGamma1/Run2024E-MINIv6NANOv15-v1/MINIAOD', era)
+        submitWrapper('EGamma0_Run2024F', '/EGamma0/Run2024F-MINIv6NANOv15-v1/MINIAOD', era)
+        submitWrapper('EGamma1_Run2024F', '/EGamma1/Run2024F-MINIv6NANOv15-v1/MINIAOD', era)
+        submitWrapper('EGamma0_Run2024G', '/EGamma0/Run2024G-MINIv6NANOv15-v2/MINIAOD', era)
+        submitWrapper('EGamma1_Run2024G', '/EGamma1/Run2024G-MINIv6NANOv15-v2/MINIAOD', era)
+        submitWrapper('EGamma0_Run2024H', '/EGamma0/Run2024H-MINIv6NANOv15-v2/MINIAOD', era)
+        submitWrapper('EGamma1_Run2024H', '/EGamma1/Run2024H-MINIv6NANOv15-v1/MINIAOD', era)
+        submitWrapper('EGamma0_Run2024I', '/EGamma0/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD', era)
+        submitWrapper('EGamma1_Run2024I', '/EGamma1/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD', era)
         ##/EGamma0/Run2024C-2024CDEReprocessing-v1/MINIAOD
         ### /EGamma0/Run2024G-PromptReco-v1/MINIAOD
         ### /EGamma1/Run2024G-PromptReco-v1/MINIAOD
         submitWrapper('DY_LO_MLL50_2024', '/DYTo2L_MLL-50_TuneCP5_13p6TeV_pythia8/Run3Winter24MiniAOD-KeepSi_133X_mcRun3_2024_realistic_v8-v2/MINIAODSIM', era)
         submitWrapper('DY_LO_M50_2024', '/DYto2L_M-50_TuneCP5_13p6TeV_pythia8/Run3Winter24MiniAOD-KeepSi_133X_mcRun3_2024_realistic_v8-v2/MINIAODSIM', era)
+        submitWrapper('DY_LO_MLL50_2024_v10', '/DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Winter24MiniAOD-133X_mcRun3_2024_realistic_v10-v3/MINIAODSIM', era)
+        submitWrapper('DY_NLO_MLL50_2024', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Winter24MiniAOD-133X_mcRun3_2024_realistic_v10-v2/MINIAODSIM', era)
+
     
     print("\n" + "="*80)
     print("HTCondor submission setup complete!")
