@@ -278,33 +278,33 @@ if __name__ == "__main__":
         # submitWrapper(f'DY_NLO_{eraPost}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v5/MINIAODSIM', eraPost)
         # # submitWrapper(f'DY_NLO_{eraPost}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM', eraPost)
 
-        era = '2023'
-        eraPre = '2023preBPIX'
-        eraPost = '2023postBPIX'
+        # era = '2023'
+        # eraPre = '2023preBPIX'
+        # eraPost = '2023postBPIX'
         
-        # # Data samples
-        # submitWrapper('EGamma0_Run2023Cv1', '/EGamma0/Run2023C-PromptReco-v1/MINIAOD', era)
-        # submitWrapper('EGamma0_Run2023Cv2', '/EGamma0/Run2023C-PromptReco-v2/MINIAOD', era)
-        # submitWrapper('EGamma0_Run2023Cv3', '/EGamma0/Run2023C-PromptReco-v3/MINIAOD', era)
-        # submitWrapper('EGamma0_Run2023Cv4', '/EGamma0/Run2023C-PromptReco-v4/MINIAOD', era)
-        # submitWrapper('EGamma1_Run2023Cv1', '/EGamma1/Run2023C-PromptReco-v1/MINIAOD', era)
-        # submitWrapper('EGamma1_Run2023Cv2', '/EGamma1/Run2023C-PromptReco-v2/MINIAOD', era)
-        # submitWrapper('EGamma1_Run2023Cv3', '/EGamma1/Run2023C-PromptReco-v3/MINIAOD', era)
-        # submitWrapper('EGamma1_Run2023Cv4', '/EGamma1/Run2023C-PromptReco-v4/MINIAOD', era)
-        # submitWrapper('EGamma0_Run2023Dv1', '/EGamma0/Run2023D-PromptReco-v1/MINIAOD', era)
-        # submitWrapper('EGamma0_Run2023Dv2', '/EGamma0/Run2023D-PromptReco-v2/MINIAOD', era)
-        # submitWrapper('EGamma1_Run2023Dv1', '/EGamma1/Run2023D-PromptReco-v1/MINIAOD', era)
-        # submitWrapper('EGamma1_Run2023Dv2', '/EGamma1/Run2023D-PromptReco-v2/MINIAOD', era)
+        # # # Data samples
+        # # submitWrapper('EGamma0_Run2023Cv1', '/EGamma0/Run2023C-PromptReco-v1/MINIAOD', era)
+        # # submitWrapper('EGamma0_Run2023Cv2', '/EGamma0/Run2023C-PromptReco-v2/MINIAOD', era)
+        # # submitWrapper('EGamma0_Run2023Cv3', '/EGamma0/Run2023C-PromptReco-v3/MINIAOD', era)
+        # # submitWrapper('EGamma0_Run2023Cv4', '/EGamma0/Run2023C-PromptReco-v4/MINIAOD', era)
+        # # submitWrapper('EGamma1_Run2023Cv1', '/EGamma1/Run2023C-PromptReco-v1/MINIAOD', era)
+        # # submitWrapper('EGamma1_Run2023Cv2', '/EGamma1/Run2023C-PromptReco-v2/MINIAOD', era)
+        # # submitWrapper('EGamma1_Run2023Cv3', '/EGamma1/Run2023C-PromptReco-v3/MINIAOD', era)
+        # # submitWrapper('EGamma1_Run2023Cv4', '/EGamma1/Run2023C-PromptReco-v4/MINIAOD', era)
+        # # submitWrapper('EGamma0_Run2023Dv1', '/EGamma0/Run2023D-PromptReco-v1/MINIAOD', era)
+        # # submitWrapper('EGamma0_Run2023Dv2', '/EGamma0/Run2023D-PromptReco-v2/MINIAOD', era)
+        # # submitWrapper('EGamma1_Run2023Dv1', '/EGamma1/Run2023D-PromptReco-v1/MINIAOD', era)
+        # # submitWrapper('EGamma1_Run2023Dv2', '/EGamma1/Run2023D-PromptReco-v2/MINIAOD', era)
         
-        # MC samples
-        # submitWrapper(f'DY_LO_{eraPre}', '/DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v1/MINIAODSIM', eraPre)
-        submitWrapper(f'DY_LO_{eraPre}', '/DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM', eraPre)
-        submitWrapper(f'DY_LO_{eraPost}', '/DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v4/MINIAODSIM', eraPost)
-        submitWrapper(f'DY_NLO_{eraPre}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM', eraPre)
-        submitWrapper(f'DY_NLO_{eraPost}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v4/MINIAODSIM', eraPost)
-        # submitWrapper(f'DY_LO_{eraPost}', '/DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v3/MINIAODSIM', eraPost)
-        # submitWrapper(f'DY_NLO_{eraPre}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v1/MINIAODSIM', eraPre)
-        # submitWrapper(f'DY_NLO_{eraPost}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v3/MINIAODSIM', eraPost)
+        # # MC samples
+        # # submitWrapper(f'DY_LO_{eraPre}', '/DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v1/MINIAODSIM', eraPre)
+        # submitWrapper(f'DY_LO_{eraPre}', '/DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM', eraPre)
+        # submitWrapper(f'DY_LO_{eraPost}', '/DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v4/MINIAODSIM', eraPost)
+        # submitWrapper(f'DY_NLO_{eraPre}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM', eraPre)
+        # submitWrapper(f'DY_NLO_{eraPost}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v4/MINIAODSIM', eraPost)
+        # # submitWrapper(f'DY_LO_{eraPost}', '/DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v3/MINIAODSIM', eraPost)
+        # # submitWrapper(f'DY_NLO_{eraPre}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v1/MINIAODSIM', eraPre)
+        # # submitWrapper(f'DY_NLO_{eraPost}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v3/MINIAODSIM', eraPost)
 
         era = '2024'
         submitWrapper('EGamma0_Run2024B', '/EGamma0/Run2024B-PromptReco-v1/MINIAOD', era)
@@ -326,10 +326,10 @@ if __name__ == "__main__":
         ##/EGamma0/Run2024C-2024CDEReprocessing-v1/MINIAOD
         ### /EGamma0/Run2024G-PromptReco-v1/MINIAOD
         ### /EGamma1/Run2024G-PromptReco-v1/MINIAOD
-        submitWrapper('DY_LO_MLL50_2024', '/DYTo2L_MLL-50_TuneCP5_13p6TeV_pythia8/Run3Winter24MiniAOD-KeepSi_133X_mcRun3_2024_realistic_v8-v2/MINIAODSIM', era)
-        submitWrapper('DY_LO_M50_2024', '/DYto2L_M-50_TuneCP5_13p6TeV_pythia8/Run3Winter24MiniAOD-KeepSi_133X_mcRun3_2024_realistic_v8-v2/MINIAODSIM', era)
-        submitWrapper('DY_LO_MLL50_2024_v10', '/DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Winter24MiniAOD-133X_mcRun3_2024_realistic_v10-v3/MINIAODSIM', era)
-        submitWrapper('DY_NLO_MLL50_2024', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Winter24MiniAOD-133X_mcRun3_2024_realistic_v10-v2/MINIAODSIM', era)
+        # submitWrapper('DY_LO_MLL50_2024', '/DYTo2L_MLL-50_TuneCP5_13p6TeV_pythia8/Run3Winter24MiniAOD-KeepSi_133X_mcRun3_2024_realistic_v8-v2/MINIAODSIM', era)
+        # submitWrapper('DY_LO_M50_2024', '/DYto2L_M-50_TuneCP5_13p6TeV_pythia8/Run3Winter24MiniAOD-KeepSi_133X_mcRun3_2024_realistic_v8-v2/MINIAODSIM', era)
+        # submitWrapper('DY_LO_MLL50_2024_v10', '/DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Winter24MiniAOD-133X_mcRun3_2024_realistic_v10-v3/MINIAODSIM', era)
+        # submitWrapper('DY_NLO_MLL50_2024', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Winter24MiniAOD-133X_mcRun3_2024_realistic_v10-v2/MINIAODSIM', era)
 
     
     print("\n" + "="*80)

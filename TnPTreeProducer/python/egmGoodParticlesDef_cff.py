@@ -62,7 +62,7 @@ def setGoodParticlesMiniAOD(process, options):
         import EgammaAnalysis.TnPTreeProducer.electronsExtrasSUSY_cff  as eleSusyID
         eleSusyID.addSusyIDs( process, options )
         options['ELECTRON_COLL']        = "slimmedElectronsWithUserData"
-    proc = "RECO"
+    proc = "PAT"# PAT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  only your using /EGamma0/Run2024F-MINIv6NANOv15-v1/MINIAOD
     if options['isMC']:
         proc = "PAT"
         ########################### common electron prob ############

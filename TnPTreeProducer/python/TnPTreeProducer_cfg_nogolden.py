@@ -112,7 +112,7 @@ if varOptions.GT == "auto":
     if options['era'] == '2022postEE': options['GLOBALTAG'] = '130X_mcRun3_2022_realistic_postEE_v6'
     if options['era'] == '2023preBPIX': options['GLOBALTAG']  = '130X_mcRun3_2023_realistic_v14' 
     if options['era'] == '2023postBPIX': options['GLOBALTAG'] = '130X_mcRun3_2023_realistic_postBPix_v2'
-    if options['era'] == '2024': options['GLOBALTAG'] = '133X_mcRun3_2024_realistic_v10' # or '133X_mcRun3_2024_realistic_v8'
+    if options['era'] == '2024': options['GLOBALTAG'] = '133X_mcRun3_2024_realistic_v10'#133X_mcRun3_2024_realistic_v8 or 133X_mcRun3_2024_realistic_v10
   else:
     if options['era'] == '2016':   options['GLOBALTAG'] = '94X_dataRun2_v10'
     if options['era'] == '2017':   options['GLOBALTAG'] = '94X_dataRun2_v11'
@@ -124,7 +124,7 @@ if varOptions.GT == "auto":
     #if options['era'] == '2022': options['GLOBALTAG'] = '123X_dataRun3_Prompt_v12'
     if options['era'] == '2022': options['GLOBALTAG'] = '124X_dataRun3_v10'#'124X_dataRun3_Prompt_v10' #update GT for 2022 from PDMV
     if options['era'] == '2023': options['GLOBALTAG'] = '130X_dataRun3_Prompt_v4' #update GT for 2023 from PDMV
-    # if options['era'] == '2024': options['GLOBALTAG'] = '140X_dataRun3_Prompt_v2'#?for B
+    # if options['era'] == '2024': options['GLOBALTAG'] = '140X_dataRun3_Prompt_v2'#!!!!!!!!!for 2024B
     if options['era'] == '2024': options['GLOBALTAG'] = '140X_dataRun3_v20' #140X_dataRun3_v20
     
     # if options['era'] == '2024': options['GLOBALTAG'] = '140X_dataRun3_Prompt_v2'
@@ -292,7 +292,7 @@ if not options['useAOD']:
   # process.init_sequence += process.isoForEle
 
 ###################################################################
-## Init and Load and golddenjson
+## Init and Load
 ###################################################################
 process.options   = cms.untracked.PSet( wantSummary = cms.untracked.bool(False) )
 
@@ -300,82 +300,6 @@ process.MessageLogger.cerr.threshold = ''
 process.MessageLogger.cerr.FwkReport.reportEvery = 10000
 
 process.source = cms.Source("PoolSource", fileNames = options['INPUT_FILE_NAME'])
-
-
-##################
-## 在process.source定义之后，添加lumi mask处理
-# 处理lumi mask（仅对数据）
-def getLumiMask(era):
-  if era == '2016':   
-    return 'https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions16/13TeV/ReReco/Final/Cert_271036-284044_13TeV_23Sep2016ReReco_Collisions16_JSON.txt'
-  elif era == '2017':   
-    return 'https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions17/13TeV/ReReco/Cert_294927-306462_13TeV_EOY2017ReReco_Collisions17_JSON_v1.txt'
-  elif era == '2018':   
-    return 'https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions18/13TeV/PromptReco/Cert_314472-325175_13TeV_PromptReco_Collisions18_JSON.txt'
-  elif era == 'UL2016preVFP': 
-    return 'https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions16/13TeV/Legacy_2016/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt'
-  elif era == 'UL2016postVFP': 
-    return 'https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions16/13TeV/Legacy_2016/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt'
-  elif era == 'UL2017': 
-    return 'https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions17/13TeV/Legacy_2017/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt'
-  elif era == 'UL2018': 
-    return 'https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions18/13TeV/PromptReco/Cert_314472-325175_13TeV_PromptReco_Collisions18_JSON.txt'
-  elif era == '2022': 
-    return 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions22/Cert_Collisions2022_355100_362760_Golden.json'
-  elif era == '2023': 
-    return 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions23/Cert_Collisions2023_366442_370790_Golden.json'
-  elif era == '2024': 
-    return 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/Cert_Collisions2024_378981_386951_Golden.json'
-  else:
-    return None
-if not options['isMC']:
-    json_url = getLumiMask(options['era'])
-    if json_url:
-        log.info(f'Using golden JSON for era {options["era"]}: {json_url}')
-        
-        import os
-        import urllib.request
-        import FWCore.PythonUtilities.LumiList as LumiList
-        
-        # 下载JSON文件
-        json_filename = os.path.basename(json_url)
-        local_json_path = os.path.join(os.getcwd(), json_filename)
-        
-        if not os.path.exists(local_json_path):
-            log.info(f'Downloading JSON file from {json_url}')
-            try:
-                urllib.request.urlretrieve(json_url, local_json_path)
-                log.info(f'JSON file saved to {local_json_path}')
-            except Exception as e:
-                log.error(f'Failed to download JSON file: {e}')
-                # 可以尝试直接使用URL
-                local_json_path = json_url
-        
-        # 应用lumi mask到输入源
-        try:
-            myLumis = LumiList.LumiList(filename=local_json_path)
-            process.source.lumisToProcess = myLumis.getVLuminosityBlockRange()
-            log.info(f'Applied lumi mask with {len(process.source.lumisToProcess)} luminosity block ranges')
-        except Exception as e:
-            log.error(f'Failed to apply lumi mask: {e}')
-    
-    # # 暂时不添加顶点过滤器
-    # process.primaryVertexFilter = cms.EDFilter("GoodVertexFilter",
-    #     vertexCollection = cms.InputTag("offlinePrimaryVertices"),
-    #     minimumNDOF = cms.uint32(4),
-    #     maxAbsZ = cms.double(24),
-    #     maxd0 = cms.double(2)
-    # )
-    
-    
-    log.info('hard to Configured for data processing with vertex filter because use + in process p')
-else:
-    log.info('Running on MC, no lumi mask or vertex filter applied')
-
-
-
-
-
 process.maxEvents = cms.untracked.PSet( input = options['MAXEVENTS'])
 
 
@@ -504,6 +428,5 @@ process.p = cms.Path(
 
 process.TFileService = cms.Service(
     "TFileService", fileName = cms.string(options['OUTPUT_FILE_NAME']),
-    closeFileFast = cms.untracked.bool(True),
-    fileMode = cms.untracked.string('RECREATE')
+    closeFileFast = cms.untracked.bool(True)
     )
