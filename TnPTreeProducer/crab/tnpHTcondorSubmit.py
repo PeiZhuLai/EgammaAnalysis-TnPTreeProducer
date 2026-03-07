@@ -8,11 +8,11 @@ from datetime import datetime
 #
 # Example script to submit TnPTreeProducer to HTCondor
 #
-submitVersion = "2026_01haozhong" # add some date here
+submitVersion = "260307" # add some date here
 doL1matching  = False
 
-defaultArgs   = ['doEleID=False','doPhoID=False','doTrigger=True']
-path = "/eos/user/h/haozhong/diele_HLT_sf/Ntuples/"
+defaultArgs   = ['doEleID=True','doPhoID=False','doTrigger=True']
+path = "/eos/home-p/pelai/HZa/root_make_TnP_ntuple/"
 
 mainOutputDir = '%s%s' % (path, submitVersion)
 
@@ -107,7 +107,7 @@ def submit_htcondor(requestName, sample, era, extraParam=[]):
     
     # Create directories
     # job_dir = f"{path}/crab_{submitVersion}/{era}_{requestName}"
-    job_dir = f"/afs/cern.ch/user/h/haozhong/HT_Ntuple_sub_EGamma/crab_{submitVersion}/{era}_{requestName}"
+    job_dir = f"/afs/cern.ch/work/p/pelai/HZa/make_TnP_ntuple/CMSSW_15_0_2/src/EgammaAnalysis/TnPTreeProducer/crab_{submitVersion}/{era}_{requestName}"
     log_dir = f"{job_dir}/logs"
     config_dir = f"{job_dir}/configs"
     output_dir = f"{mainOutputDir}/{era}/{dMC}/{requestName}" #直接使用requestNam##########################
@@ -307,6 +307,7 @@ if __name__ == "__main__":
         # # submitWrapper(f'DY_NLO_{eraPost}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v3/MINIAODSIM', eraPost)
 
         era = '2024'
+        # # # Data samples
         submitWrapper('EGamma0_Run2024B', '/EGamma0/Run2024B-PromptReco-v1/MINIAOD', era)
         submitWrapper('EGamma1_Run2024B', '/EGamma1/Run2024B-PromptReco-v1/MINIAOD', era)
         submitWrapper('EGamma0_Run2024C', '/EGamma0/Run2024C-MINIv6NANOv15-v1/MINIAOD', era)
@@ -326,10 +327,10 @@ if __name__ == "__main__":
         ##/EGamma0/Run2024C-2024CDEReprocessing-v1/MINIAOD
         ### /EGamma0/Run2024G-PromptReco-v1/MINIAOD
         ### /EGamma1/Run2024G-PromptReco-v1/MINIAOD
-        # submitWrapper('DY_LO_MLL50_2024', '/DYTo2L_MLL-50_TuneCP5_13p6TeV_pythia8/Run3Winter24MiniAOD-KeepSi_133X_mcRun3_2024_realistic_v8-v2/MINIAODSIM', era)
-        # submitWrapper('DY_LO_M50_2024', '/DYto2L_M-50_TuneCP5_13p6TeV_pythia8/Run3Winter24MiniAOD-KeepSi_133X_mcRun3_2024_realistic_v8-v2/MINIAODSIM', era)
-        # submitWrapper('DY_LO_MLL50_2024_v10', '/DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Winter24MiniAOD-133X_mcRun3_2024_realistic_v10-v3/MINIAODSIM', era)
-        # submitWrapper('DY_NLO_MLL50_2024', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Winter24MiniAOD-133X_mcRun3_2024_realistic_v10-v2/MINIAODSIM', era)
+        # # MC samples
+        submitWrapper('DY_LO_2024', '/DYto2E-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v3/MINIAODSIM', era)
+        submitWrapper('DY_NLO_2024', '/DYto2E-2Jets_Bin-MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v4/MINIAODSIM', era)
+
 
     
     print("\n" + "="*80)

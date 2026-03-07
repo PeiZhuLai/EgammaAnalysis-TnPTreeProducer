@@ -1,5 +1,6 @@
 *.root
 *.pyc
 __init__.py
-crab/prescaleInformation
-crab/crab*
+TnPTreeProducer/crab/prescaleInformation
+TnPTreeProducer/crab/crab*
+TnPTreeProducer/crab_260307

@@ -84,15 +84,15 @@ EleProbeVariablesToStore = cms.PSet(
     el_1overEminus1overP    = cms.string("abs(1-eSuperClusterOverP())/ecalEnergy()"),
 
     # mva id
-
     el_nonTrigMVA80X = cms.InputTag("electronMVAValueMapProducer:ElectronMVAEstimatorRun2Spring16GeneralPurposeV1Values"),
     el_hzzMVA80X     = cms.InputTag("electronMVAValueMapProducer:ElectronMVAEstimatorRun2Spring16HZZV1Values"),
     el_noIsoMVA94X     = cms.InputTag("electronMVAValueMapProducer:ElectronMVAEstimatorRun2Fall17NoIsoV1Values"),
     el_IsoMVA94X     = cms.InputTag("electronMVAValueMapProducer:ElectronMVAEstimatorRun2Fall17IsoV1RawValues"),
     el_noIsoMVA94XV2     = cms.InputTag("electronMVAValueMapProducer:ElectronMVAEstimatorRun2Fall17NoIsoV2RawValues"),
     el_IsoMVA94XV2     = cms.InputTag("electronMVAValueMapProducer:ElectronMVAEstimatorRun2Fall17IsoV2RawValues"),
+    # hzg/hza FIXME
+    el_hzzMVA = cms.InputTag("electronMVAValueMapProducer:ElectronMVAEstimatorRun2Winter22HZZV1Values")
 
-     
     #isolation
     el_chIso               = cms.string("pfIsolationVariables().sumChargedHadronPt"),
     el_phoIso              = cms.string("pfIsolationVariables().sumPhotonEt"),
@@ -102,22 +102,17 @@ EleProbeVariablesToStore = cms.PSet(
     el_hcalIso             = cms.string("hcalPFClusterIso"), # this one seem to be always 0 in CMSSW_10_2_X
     el_trkIso              = cms.string("trackIso"),
     el_dr03TkSumPt         = cms.string("dr03TkSumPt"),
-
     # this relative PF lepton isolation component is added to the standard PF isolation sum
     # in order to get the isolation variable used in the triboson analysis
     # in the small test runs this variable is always 0, but I guess it is very rare to find another lepton in the cone
     el_relPfLepIso03 = cms.InputTag("eleVarHelper:pfLeptonIsolation"),
-#########################################################################
-    # 添加新的隔离度变量直接在eleVarHelper里实现就行
+    #########################################################################
     el_miniPFRelIso_chg = cms.InputTag("eleVarHelper:miniIsoChg"),
     el_miniPFRelIso_all = cms.InputTag("eleVarHelper:miniIsoAll"),
     el_pfRelIso03_chg = cms.InputTag("eleVarHelper:pfIsoChg"),
     el_pfRelIso03_all = cms.InputTag("eleVarHelper:pfIsoAll"),
     el_pfRelIso04_all = cms.InputTag("eleVarHelper:pfIsoAll04"),
-#########################################################################
-    #added for VHbbEIso
-    el_sumPUPt       = cms.string("pfIsolationVariables().sumPUPt"),
-    el_relIso03_dB   = cms.string("(pfIsolationVariables().sumChargedHadronPt + max(pfIsolationVariables().sumNeutralHadronEt + pfIsolationVariables().sumPhotonEt - 0.5 * pfIsolationVariables().sumPUPt,0.0)) / pt() "),
+    #########################################################################
 
     # tracker Variabels
     el_tk_pt         = cms.string("gsfTrack().ptMode"),

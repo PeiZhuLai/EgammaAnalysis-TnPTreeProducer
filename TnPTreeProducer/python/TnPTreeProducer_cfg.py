@@ -112,7 +112,8 @@ if varOptions.GT == "auto":
     if options['era'] == '2022postEE': options['GLOBALTAG'] = '130X_mcRun3_2022_realistic_postEE_v6'
     if options['era'] == '2023preBPIX': options['GLOBALTAG']  = '130X_mcRun3_2023_realistic_v14' 
     if options['era'] == '2023postBPIX': options['GLOBALTAG'] = '130X_mcRun3_2023_realistic_postBPix_v2'
-    if options['era'] == '2024': options['GLOBALTAG'] = '133X_mcRun3_2024_realistic_v10' # or '133X_mcRun3_2024_realistic_v8'
+    # if options['era'] == '2024': options['GLOBALTAG'] = '133X_mcRun3_2024_realistic_v8' # DY_LO
+    if options['era'] == '2024': options['GLOBALTAG'] = '150X_mcRun3_2024_realistic_v2' # DY_NLO
   else:
     if options['era'] == '2016':   options['GLOBALTAG'] = '94X_dataRun2_v10'
     if options['era'] == '2017':   options['GLOBALTAG'] = '94X_dataRun2_v11'
