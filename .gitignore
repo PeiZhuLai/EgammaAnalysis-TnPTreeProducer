@@ -4,3 +4,12 @@ __init__.py
 TnPTreeProducer/crab/prescaleInformation
 TnPTreeProducer/crab/crab*
 TnPTreeProducer/crab_260307
+TnPTreeProducer/crab_eTnP_ntuple/*/logs/*.err
+TnPTreeProducer/crab_eTnP_ntuple/*/logs/*.out
+TnPTreeProducer/crab_eTnP_ntuple/*/logs/*.log
+TnPTreeProducer/crab_eTnP_ntuple/*/configs/condor_submit.sub
+TnPTreeProducer/crab_eTnP_ntuple/*/configs/submit_jobs.sh
+TnPTreeProducer/crab_eTnP_ntuple/*/configs/job_list.txt
+TnPTreeProducer/crab_eTnP_ntuple/*/configs/run_job.sh
+TnPTreeProducer/crab_eTnP_ntuple/*/configs/pelai.cc
+TnPTreeProducer/crab_eTnP_ntuple/*

@@ -8,7 +8,7 @@ from datetime import datetime
 #
 # Example script to submit TnPTreeProducer to HTCondor
 #
-submitVersion = "260307" # add some date here
+submitVersion = "eTnP_ntuple" # add some date here
 doL1matching  = False
 
 defaultArgs   = ['doEleID=True','doPhoID=False','doTrigger=True']
@@ -139,7 +139,7 @@ def submit_htcondor(requestName, sample, era, extraParam=[]):
 cd {cmssw_base}
 eval `scramv1 runtime -sh`
 cd -
-export X509_USER_PROXY=/eos/user/h/haozhong/my_x509_user_proxy
+export X509_USER_PROXY=/tmp/x509up_u$(id -u)
 # 获取参数
 INPUT_FILES=$1
 OUTPUT_FILE=$2
