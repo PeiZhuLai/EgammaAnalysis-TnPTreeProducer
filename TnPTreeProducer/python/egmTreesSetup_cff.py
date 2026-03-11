@@ -42,6 +42,7 @@ def setTagsProbes(process, options):
     process.probeEle             = process.tagEle.clone()
     process.probeEle.filterNames = cms.vstring(options['TnPHLTProbeFilters'])
     process.probeEle.inputs      = cms.InputTag("goodElectrons")
+    process.probeEle.dR          = cms.double(999)
 
     ################# PROBE ELECTRONs passHLT #######################
     process.probeElePassHLT        = process.tagEle.clone()
@@ -202,6 +203,12 @@ def setSequences(process, options):
     if options['addSUSY'] : process.init_sequence += process.susy_sequence
     if options['addSUSY'] : process.init_sequence += process.susy_sequence_requiresVID
 
+    ###########
+    process.init_sequence += process.hltLeg1DR
+    process.init_sequence += process.hltLeg2DR
+    process.init_sequence += process.hltSingleDR
+    process.init_sequence += process.HltDoubleLegDR
+    ##############
 
 ###################################################################################
 ################  --- tree Maker setup

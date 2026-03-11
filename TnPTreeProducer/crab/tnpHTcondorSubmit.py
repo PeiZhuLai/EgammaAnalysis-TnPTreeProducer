@@ -139,7 +139,8 @@ def submit_htcondor(requestName, sample, era, extraParam=[]):
 cd {cmssw_base}
 eval `scramv1 runtime -sh`
 cd -
-export X509_USER_PROXY=/tmp/x509up_u$(id -u)
+# Should not put it at /tmp. It must cause the issue.
+export X509_USER_PROXY=/afs/cern.ch/user/p/pelai/x509up_u175325
 # 获取参数
 INPUT_FILES=$1
 OUTPUT_FILE=$2

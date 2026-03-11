@@ -79,6 +79,56 @@ def setGoodParticlesMiniAOD(process, options):
                                           rho_PFIso       = cms.InputTag("fixedGridRhoFastjetAll"),
                                           )
 
+    # 双电子trigger leg1
+    process.hltLeg1DR = cms.EDProducer("PatElectronHLTDRHelper",
+        probes = cms.InputTag(options['ELECTRON_COLL']),  # 输入电子集合
+        triggerBits = cms.InputTag("TriggerResults", "", "HLT"),  # TriggerResults标签
+        triggerObjects = cms.InputTag("slimmedPatTrigger"),  # pat::TriggerObjectStandAlone集合
+        filterLabel = cms.string("hltEle23Ele12CaloIdLTrackIdLIsoVLTrackIsoLeg1Filter"),  # 要匹配的filter名称
+        outputDRName = cms.untracked.string("hltLeg1DR"),  # output ValueMap name
+        dR = cms.double(0.3),  # ΔR匹配阈值
+        useSuperCluster = cms.untracked.bool(False),  # 使用superCluster位置
+        debug = cms.untracked.bool(False)  # 是否输出调试信息
+    )
+
+    # 双电子trigger leg2
+    process.hltLeg2DR = cms.EDProducer("PatElectronHLTDRHelper",
+        probes = cms.InputTag(options['ELECTRON_COLL']),
+        triggerBits = cms.InputTag("TriggerResults", "", "HLT"),
+        triggerObjects = cms.InputTag("slimmedPatTrigger"),
+        filterLabel = cms.string("hltEle23Ele12CaloIdLTrackIdLIsoVLTrackIsoLeg2Filter"),  # leg2 filter
+        outputDRName = cms.untracked.string("hltLeg2DR"),
+        dR = cms.double(0.3),
+        useSuperCluster = cms.untracked.bool(False),
+        debug = cms.untracked.bool(False)
+    )
+
+    # 单电子trigger
+    process.hltSingleDR = cms.EDProducer("PatElectronHLTDRHelper",
+        probes = cms.InputTag(options['ELECTRON_COLL']),
+        triggerBits = cms.InputTag("TriggerResults", "", "HLT"),
+        triggerObjects = cms.InputTag("slimmedPatTrigger"),
+        filterLabel = cms.string("hltEle30WPTightGsfTrackIsoFilter"),  # 单电子filter
+        outputDRName = cms.untracked.string("hltSingleDR"),
+        dR = cms.double(0.3),
+        useSuperCluster = cms.untracked.bool(False),
+        debug = cms.untracked.bool(False)
+    )
+
+    
+    # 双电子trigger路径 - 同时输出leg1和leg2的ΔR
+    process.HltDoubleLegDR = cms.EDProducer("PatElectronHLTPathDRHelper",
+        probes = cms.InputTag(options['ELECTRON_COLL']),  # 输入电子集合
+        triggerBits = cms.InputTag("TriggerResults", "", "HLT"),  # TriggerResults标签
+        triggerObjects = cms.InputTag("slimmedPatTrigger"),  # pat::TriggerObjectStandAlone集合
+        hltPath = cms.string("HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_v*"),  # HLT路径名称（注意不是filterLabel）
+        outputDRNameLeg1 = cms.untracked.string("HltLeg1DR"),  # leg1的ΔR输出名称
+        outputDRNameLeg2 = cms.untracked.string("HltLeg2DR"),  # leg2的ΔR输出名称
+        dR = cms.double(0.3),  # ΔR匹配阈值
+        useSuperCluster = cms.untracked.bool(False),  # 使用superCluster位置
+        debug = cms.untracked.bool(False)  # 是否输出调试信息
+    )
+
     ####################  Electron collection
     process.goodElectrons = cms.EDFilter("PATElectronRefSelector",
                                          src = cms.InputTag( options['ELECTRON_COLL'] ),

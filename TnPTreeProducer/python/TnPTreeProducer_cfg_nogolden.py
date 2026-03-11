@@ -299,7 +299,11 @@ process.options   = cms.untracked.PSet( wantSummary = cms.untracked.bool(False) 
 process.MessageLogger.cerr.threshold = ''
 process.MessageLogger.cerr.FwkReport.reportEvery = 10000
 
-process.source = cms.Source("PoolSource", fileNames = options['INPUT_FILE_NAME'])
+process.source = cms.Source(
+    "PoolSource",
+    fileNames=options['INPUT_FILE_NAME'],
+    skipBadFiles=cms.untracked.bool(True),
+)
 process.maxEvents = cms.untracked.PSet( input = options['MAXEVENTS'])
 
 
