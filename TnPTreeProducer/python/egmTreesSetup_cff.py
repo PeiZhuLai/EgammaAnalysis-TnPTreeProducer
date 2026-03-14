@@ -46,6 +46,7 @@ def setTagsProbes(process, options):
 
     ################# PROBE ELECTRONs passHLT #######################
     process.probeElePassHLT        = process.tagEle.clone()
+    process.probeElePassHLT.dR     = cms.double(999)
     process.probeElePassHLT.inputs = cms.InputTag("probeEle")
     process.probeElePassHLT.isAND  = cms.bool(False)
 
@@ -61,8 +62,10 @@ def setTagsProbes(process, options):
                                                   isolatedOnly = cms.bool(False)
       )
       process.probeEleL1matched               = process.probeEle.clone()
+      process.probeEleL1matched.dR            = cms.double(999)
       process.probeEleL1matched.inputs        = cms.InputTag("goodElectronProbesL1")
       process.probeElePassHLTL1matched        = process.probeElePassHLT.clone()
+      process.probeElePassHLTL1matched.dR     = cms.double(999)
       process.probeElePassHLTL1matched.inputs = cms.InputTag("probeEleL1matched")
 
     for flag, filterNames in options['HLTFILTERSTOMEASURE'].items():

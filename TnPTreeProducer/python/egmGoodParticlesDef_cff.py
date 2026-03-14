@@ -86,7 +86,7 @@ def setGoodParticlesMiniAOD(process, options):
         triggerObjects = cms.InputTag("slimmedPatTrigger"),  # pat::TriggerObjectStandAlone集合
         filterLabel = cms.string("hltEle23Ele12CaloIdLTrackIdLIsoVLTrackIsoLeg1Filter"),  # 要匹配的filter名称
         outputDRName = cms.untracked.string("hltLeg1DR"),  # output ValueMap name
-        dR = cms.double(0.3),  # ΔR匹配阈值
+        dR = cms.double(9),  # ΔR匹配阈值
         useSuperCluster = cms.untracked.bool(False),  # 使用superCluster位置
         debug = cms.untracked.bool(False)  # 是否输出调试信息
     )
@@ -98,7 +98,7 @@ def setGoodParticlesMiniAOD(process, options):
         triggerObjects = cms.InputTag("slimmedPatTrigger"),
         filterLabel = cms.string("hltEle23Ele12CaloIdLTrackIdLIsoVLTrackIsoLeg2Filter"),  # leg2 filter
         outputDRName = cms.untracked.string("hltLeg2DR"),
-        dR = cms.double(0.3),
+        dR = cms.double(9),
         useSuperCluster = cms.untracked.bool(False),
         debug = cms.untracked.bool(False)
     )
@@ -110,7 +110,7 @@ def setGoodParticlesMiniAOD(process, options):
         triggerObjects = cms.InputTag("slimmedPatTrigger"),
         filterLabel = cms.string("hltEle30WPTightGsfTrackIsoFilter"),  # 单电子filter
         outputDRName = cms.untracked.string("hltSingleDR"),
-        dR = cms.double(0.3),
+        dR = cms.double(9),
         useSuperCluster = cms.untracked.bool(False),
         debug = cms.untracked.bool(False)
     )
@@ -124,7 +124,7 @@ def setGoodParticlesMiniAOD(process, options):
         hltPath = cms.string("HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_v*"),  # HLT路径名称（注意不是filterLabel）
         outputDRNameLeg1 = cms.untracked.string("HltLeg1DR"),  # leg1的ΔR输出名称
         outputDRNameLeg2 = cms.untracked.string("HltLeg2DR"),  # leg2的ΔR输出名称
-        dR = cms.double(0.3),  # ΔR匹配阈值
+        dR = cms.double(9),  # ΔR匹配阈值
         useSuperCluster = cms.untracked.bool(False),  # 使用superCluster位置
         debug = cms.untracked.bool(False)  # 是否输出调试信息
     )

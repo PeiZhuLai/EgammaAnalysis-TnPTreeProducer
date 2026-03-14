@@ -116,8 +116,8 @@ EleProbeVariablesToStore = cms.PSet(
     el_hltE23E12leg1_dR = cms.InputTag("hltLeg1DR:hltLeg1DR"),
     el_hltE23E12leg2_dR = cms.InputTag("hltLeg2DR:hltLeg2DR"),
     el_hltE30single_dR = cms.InputTag("hltSingleDR:hltSingleDR"),
-    el_hltE23E12_simultaneous_leg1_dR = cms.InputTag("HltDoubleLegDR:HltLeg1DR"),
-    el_hltE23E12_simultaneous_leg2_dR = cms.InputTag("HltDoubleLegDR:HltLeg2DR"),
+    # el_hltE23E12_simultaneous_leg1_dR = cms.InputTag("HltDoubleLegDR:HltLeg1DR"),
+    # el_hltE23E12_simultaneous_leg2_dR = cms.InputTag("HltDoubleLegDR:HltLeg2DR"),
     #########################################################################
 
     # tracker Variabels
