@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # HTCondor submission script for eTnP_ntuple
-# Generated on 2026-03-11 19:51:07
+# Generated on 2026-03-15 12:05:59
 
 echo 'Submitting EGamma0_Run2024B'
 /afs/cern.ch/work/p/pelai/HZa/make_TnP_ntuple/CMSSW_15_0_2/src/EgammaAnalysis/TnPTreeProducer/crab_eTnP_ntuple/2024_EGamma0_Run2024B/configs/submit_jobs.sh
