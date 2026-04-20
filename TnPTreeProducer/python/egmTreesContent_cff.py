@@ -108,7 +108,7 @@ EleProbeVariablesToStore = cms.PSet(
     # el_relPfLepIso03 = cms.InputTag("eleVarHelper:pfLeptonIsolation"),
     #########################################################################
     # el_miniPFRelIso_chg = cms.InputTag("eleVarHelper:miniIsoChg"),
-    # el_miniPFRelIso_all = cms.InputTag("eleVarHelper:miniIsoAll"),
+    el_miniPFRelIso_all = cms.InputTag("eleVarHelper:miniIsoAll"),
     # el_pfRelIso03_chg = cms.InputTag("eleVarHelper:pfIsoChg"),
     # el_pfRelIso03_all = cms.InputTag("eleVarHelper:pfIsoAll"),
     # el_pfRelIso04_all = cms.InputTag("eleVarHelper:pfIsoAll04"),

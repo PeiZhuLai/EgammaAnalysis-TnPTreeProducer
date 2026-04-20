@@ -12,8 +12,10 @@ submitVersion = "eTnP_ntuple" # add some date here
 doL1matching  = False
 
 defaultArgs   = ['doEleID=True','doPhoID=False','doTrigger=True']
-path = "/eos/home-p/pelai/HZa/root_make_TnP_ntuple/"
+# path = "/eos/home-p/pelai/HZa/root_make_TnP_ntuple/"
+path = "/eos/project/h/htozg-dy-privatemc/pelai/root_make_EGM_TnP_ntuple"
 
+/eos/project/h/htozg-dy-privatemc/pelai/root_make_TnP_ntuple
 mainOutputDir = '%s%s' % (path, submitVersion)
 
 # Logging the current version of TnPTreeProducer here
@@ -69,6 +71,8 @@ def getLumiMask(era):
     return 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions23/Cert_Collisions2023_366442_370790_Golden.json'
   elif era == '2024': 
     return 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/Cert_Collisions2024_378981_386951_Golden.json'
+  elif era == '2025': 
+    return 'https://https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions25/Cert_Collisions2025_391658_398903_Golden.json'
   else:
     return None
 
@@ -235,7 +239,7 @@ def submitWrapper(requestName, sample, era, extraParam=[]):
         submit_script = submit_htcondor(requestName, sample, era, extraParam)
         
         # Write to submission scripts
-        with open("htcondor_submit_all.sh", "a") as f:
+        with open("htcondor_submit_all_2025.sh", "a") as f:
             f.write(f"echo 'Submitting {requestName}'\n")
             f.write(f"{submit_script}\n")
             f.write(f"echo 'Submitted {requestName}'\n")
@@ -246,7 +250,7 @@ def submitWrapper(requestName, sample, era, extraParam=[]):
 #
 if __name__ == "__main__":
     # Create submission script
-    with open("htcondor_submit_all.sh", "w") as f:
+    with open("htcondor_submit_all_2025.sh", "w") as f:
         f.write("#!/bin/bash\n\n")
         f.write(f"# HTCondor submission script for {submitVersion}\n")
         f.write(f"# Generated on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
@@ -307,35 +311,68 @@ if __name__ == "__main__":
         # # submitWrapper(f'DY_NLO_{eraPre}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v1/MINIAODSIM', eraPre)
         # # submitWrapper(f'DY_NLO_{eraPost}', '/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v3/MINIAODSIM', eraPost)
 
-        era = '2024'
-        # # # Data samples
-        submitWrapper('EGamma0_Run2024B', '/EGamma0/Run2024B-PromptReco-v1/MINIAOD', era)
-        submitWrapper('EGamma1_Run2024B', '/EGamma1/Run2024B-PromptReco-v1/MINIAOD', era)
-        submitWrapper('EGamma0_Run2024C', '/EGamma0/Run2024C-MINIv6NANOv15-v1/MINIAOD', era)
-        submitWrapper('EGamma1_Run2024C', '/EGamma1/Run2024C-MINIv6NANOv15-v1/MINIAOD', era)
-        submitWrapper('EGamma0_Run2024D', '/EGamma0/Run2024D-MINIv6NANOv15-v1/MINIAOD', era)
-        submitWrapper('EGamma1_Run2024D', '/EGamma1/Run2024D-MINIv6NANOv15-v1/MINIAOD', era)
-        submitWrapper('EGamma0_Run2024E', '/EGamma0/Run2024E-MINIv6NANOv15-v1/MINIAOD', era)
-        submitWrapper('EGamma1_Run2024E', '/EGamma1/Run2024E-MINIv6NANOv15-v1/MINIAOD', era)
-        submitWrapper('EGamma0_Run2024F', '/EGamma0/Run2024F-MINIv6NANOv15-v1/MINIAOD', era)
-        submitWrapper('EGamma1_Run2024F', '/EGamma1/Run2024F-MINIv6NANOv15-v1/MINIAOD', era)
-        submitWrapper('EGamma0_Run2024G', '/EGamma0/Run2024G-MINIv6NANOv15-v2/MINIAOD', era)
-        submitWrapper('EGamma1_Run2024G', '/EGamma1/Run2024G-MINIv6NANOv15-v2/MINIAOD', era)
-        submitWrapper('EGamma0_Run2024H', '/EGamma0/Run2024H-MINIv6NANOv15-v2/MINIAOD', era)
-        submitWrapper('EGamma1_Run2024H', '/EGamma1/Run2024H-MINIv6NANOv15-v1/MINIAOD', era)
-        submitWrapper('EGamma0_Run2024I', '/EGamma0/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD', era)
-        submitWrapper('EGamma1_Run2024I', '/EGamma1/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD', era)
-        ##/EGamma0/Run2024C-2024CDEReprocessing-v1/MINIAOD
-        ### /EGamma0/Run2024G-PromptReco-v1/MINIAOD
-        ### /EGamma1/Run2024G-PromptReco-v1/MINIAOD
-        # # MC samples
-        submitWrapper('DY_LO_2024', '/DYto2E-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v3/MINIAODSIM', era)
-        submitWrapper('DY_NLO_2024', '/DYto2E-2Jets_Bin-MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v4/MINIAODSIM', era)
+        # era = '2024'
+        # # # # Data samples
+        # submitWrapper('EGamma0_Run2024B', '/EGamma0/Run2024B-PromptReco-v1/MINIAOD', era)
+        # submitWrapper('EGamma1_Run2024B', '/EGamma1/Run2024B-PromptReco-v1/MINIAOD', era)
+        # submitWrapper('EGamma0_Run2024C', '/EGamma0/Run2024C-MINIv6NANOv15-v1/MINIAOD', era)
+        # submitWrapper('EGamma1_Run2024C', '/EGamma1/Run2024C-MINIv6NANOv15-v1/MINIAOD', era)
+        # submitWrapper('EGamma0_Run2024D', '/EGamma0/Run2024D-MINIv6NANOv15-v1/MINIAOD', era)
+        # submitWrapper('EGamma1_Run2024D', '/EGamma1/Run2024D-MINIv6NANOv15-v1/MINIAOD', era)
+        # submitWrapper('EGamma0_Run2024E', '/EGamma0/Run2024E-MINIv6NANOv15-v1/MINIAOD', era)
+        # submitWrapper('EGamma1_Run2024E', '/EGamma1/Run2024E-MINIv6NANOv15-v1/MINIAOD', era)
+        # submitWrapper('EGamma0_Run2024F', '/EGamma0/Run2024F-MINIv6NANOv15-v1/MINIAOD', era)
+        # submitWrapper('EGamma1_Run2024F', '/EGamma1/Run2024F-MINIv6NANOv15-v1/MINIAOD', era)
+        # submitWrapper('EGamma0_Run2024G', '/EGamma0/Run2024G-MINIv6NANOv15-v2/MINIAOD', era)
+        # submitWrapper('EGamma1_Run2024G', '/EGamma1/Run2024G-MINIv6NANOv15-v2/MINIAOD', era)
+        # submitWrapper('EGamma0_Run2024H', '/EGamma0/Run2024H-MINIv6NANOv15-v2/MINIAOD', era)
+        # submitWrapper('EGamma1_Run2024H', '/EGamma1/Run2024H-MINIv6NANOv15-v1/MINIAOD', era)
+        # submitWrapper('EGamma0_Run2024I', '/EGamma0/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD', era)
+        # submitWrapper('EGamma1_Run2024I', '/EGamma1/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD', era)
+        # ##/EGamma0/Run2024C-2024CDEReprocessing-v1/MINIAOD
+        # ### /EGamma0/Run2024G-PromptReco-v1/MINIAOD
+        # ### /EGamma1/Run2024G-PromptReco-v1/MINIAOD
+        # # # MC samples
+        # submitWrapper('DY_LO_2024', '/DYto2E-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v3/MINIAODSIM', era)
+        # submitWrapper('DY_NLO_2024', '/DYto2E-2Jets_Bin-MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v4/MINIAODSIM', era)
+
+        era = '2025'
+        submitWrapper('EGamma0_Run2025C_v1', '/EGamma0/Run2025C-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma1_Run2025C_v1', '/EGamma1/Run2025C-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma2_Run2025C_v1', '/EGamma2/Run2025C-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma3_Run2025C_v1', '/EGamma3/Run2025C-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma0_Run2025C_v2', '/EGamma0/Run2025C-PromptReco-v2/MINIAOD', era)
+        submitWrapper('EGamma1_Run2025C_v2', '/EGamma1/Run2025C-PromptReco-v2/MINIAOD', era)
+        submitWrapper('EGamma2_Run2025C_v2', '/EGamma2/Run2025C-PromptReco-v2/MINIAOD', era)
+        submitWrapper('EGamma3_Run2025C_v2', '/EGamma3/Run2025C-PromptReco-v2/MINIAOD', era)
+
+        submitWrapper('EGamma0_Run2025D_v1', '/EGamma0/Run2025D-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma1_Run2025D_v1', '/EGamma1/Run2025D-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma2_Run2025D_v1', '/EGamma2/Run2025D-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma3_Run2025D_v1', '/EGamma3/Run2025D-PromptReco-v1/MINIAOD', era)
+
+        submitWrapper('EGamma0_Run2025E_v1', '/EGamma0/Run2025E-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma1_Run2025E_v1', '/EGamma1/Run2025E-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma2_Run2025E_v1', '/EGamma2/Run2025E-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma3_Run2025E_v1', '/EGamma3/Run2025E-PromptReco-v1/MINIAOD', era)
+
+        submitWrapper('EGamma0_Run2025F_v1', '/EGamma0/Run2025F-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma1_Run2025F_v1', '/EGamma1/Run2025F-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma2_Run2025F_v1', '/EGamma2/Run2025F-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma3_Run2025F_v1', '/EGamma3/Run2025F-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma0_Run2025F_v2', '/EGamma0/Run2025F-PromptReco-v2/MINIAOD', era)
+        submitWrapper('EGamma1_Run2025F_v2', '/EGamma1/Run2025F-PromptReco-v2/MINIAOD', era)
+        submitWrapper('EGamma2_Run2025F_v2', '/EGamma2/Run2025F-PromptReco-v2/MINIAOD', era)
+        submitWrapper('EGamma3_Run2025F_v2', '/EGamma3/Run2025F-PromptReco-v2/MINIAOD', era)
+
+        submitWrapper('EGamma0_Run2025G_v1', '/EGamma0/Run2025G-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma1_Run2025G_v1', '/EGamma1/Run2025G-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma2_Run2025G_v1', '/EGamma2/Run2025G-PromptReco-v1/MINIAOD', era)
+        submitWrapper('EGamma3_Run2025G_v1', '/EGamma3/Run2025G-PromptReco-v1/MINIAOD', era)
 
 
-    
     print("\n" + "="*80)
     print("HTCondor submission setup complete!")
-    print("To submit all jobs, run: bash htcondor_submit_all.sh")
+    print("To submit all jobs, run: bash htcondor_submit_all_2025.sh")
     print(f"Output will be in: {mainOutputDir}")
     print("="*80)
