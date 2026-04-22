@@ -14,7 +14,7 @@ doL1matching  = False
 defaultArgs   = ['doEleID=True','doPhoID=False','doTrigger=True']
 # path = "/eos/home-p/pelai/HZa/root_make_TnP_ntuple/"
 path = "/eos/project/h/htozg-dy-privatemc/pelai/root_make_EGM_TnP_ntuple"
-mainOutputDir = '%s%s' % (path, submitVersion)
+mainOutputDir = '%s/%s' % (path, submitVersion)
 
 # Logging the current version of TnPTreeProducer here
 os.system('mkdir -p %s' % mainOutputDir)
