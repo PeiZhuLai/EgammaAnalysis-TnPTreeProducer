@@ -12,15 +12,11 @@ submitVersion = "eTnP_ntuple" # add some date here
 doL1matching  = False
 
 defaultArgs   = ['doEleID=True','doPhoID=False','doTrigger=True']
-# staging area on EOS home, final output on EOS project
-stagingPath = "/eos/home-p/pelai/HZa/root_make_eTnP_ntuple"
 path = "/eos/project/h/htozg-dy-privatemc/pelai/root_make_EGM_TnP_ntuple"
 mainOutputDir = '%s/%s' % (path, submitVersion)
-stagingOutputDir = stagingPath
 
 # Logging the current version of TnPTreeProducer here
 os.system('mkdir -p %s' % mainOutputDir)
-os.system('mkdir -p %s' % stagingOutputDir)
 os.system('(git log -n 1;git diff) &> %s/git.log' % mainOutputDir)
 
 #
@@ -149,46 +145,20 @@ export X509_USER_PROXY=/afs/cern.ch/user/p/pelai/x509up_u175325
 # 获取参数
 INPUT_FILES=$1
 OUTPUT_FILE=$2
-FINAL_OUTPUT_ROOT="{mainOutputDir}"
-STAGING_OUTPUT_ROOT="{stagingOutputDir}"
-if [[ "$OUTPUT_FILE" != "$FINAL_OUTPUT_ROOT/"* ]]; then
-  echo "Output file is outside expected final root: $OUTPUT_FILE"
-  exit 1
-fi
-REL_OUTPUT_PATH="${{OUTPUT_FILE#$FINAL_OUTPUT_ROOT/}}"
-STAGING_OUTPUT_FILE="$STAGING_OUTPUT_ROOT/$REL_OUTPUT_PATH"
 
 # 调试信息
 echo "Starting job at: $(date)"
 echo "Input files: $INPUT_FILES"
 echo "Output file: $OUTPUT_FILE"
-echo "Staging output file: $STAGING_OUTPUT_FILE"
 echo "Current directory: $(pwd)"
 echo "PATH: $PATH"
-rm -f "$STAGING_OUTPUT_FILE"
-mkdir -p "$(dirname "$STAGING_OUTPUT_FILE")"
 mkdir -p "$(dirname "$OUTPUT_FILE")"
-# Write to EOS home staging first, then move to EOS project.
-cmsRun {cmssw_base}/src/EgammaAnalysis/TnPTreeProducer/python/TnPTreeProducer_cfg.py {' '.join(args_list)} inputFiles=$1 outputFile="$STAGING_OUTPUT_FILE"
-CMSRUN_STATUS=$?
-if [ $CMSRUN_STATUS -ne 0 ]; then
-  echo "cmsRun failed with status $CMSRUN_STATUS"
-  exit $CMSRUN_STATUS
-fi
-if [ ! -f "$STAGING_OUTPUT_FILE" ]; then
-  echo "Staging output file was not produced: $STAGING_OUTPUT_FILE"
-  exit 1
-fi
 if [ -f "$OUTPUT_FILE" ]; then
   echo "Removing existing output file: $OUTPUT_FILE"
   rm -f "$OUTPUT_FILE"
 fi
-mv -f "$STAGING_OUTPUT_FILE" "$OUTPUT_FILE"
-MOVE_STATUS=$?
-if [ $MOVE_STATUS -ne 0 ]; then
-  echo "Failed to move $STAGING_OUTPUT_FILE to $OUTPUT_FILE"
-  exit $MOVE_STATUS
-fi
+# Run the analysis directly to the final output path.
+cmsRun {cmssw_base}/src/EgammaAnalysis/TnPTreeProducer/python/TnPTreeProducer_cfg.py {' '.join(args_list)} inputFiles=$1 outputFile="$OUTPUT_FILE"
 '''
     
     job_script_path = f'{config_dir}/run_job.sh'
