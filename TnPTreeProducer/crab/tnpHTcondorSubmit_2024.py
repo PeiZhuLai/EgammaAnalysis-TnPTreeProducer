@@ -12,7 +12,7 @@ submitVersion = "eTnP_ntuple" # add some date here
 doL1matching  = False
 
 defaultArgs   = ['doEleID=True','doPhoID=False','doTrigger=True']
-path = "/eos/project/h/htozg-dy-privatemc/pelai/root_make_EGM_TnP_ntuple"
+path = "/eos/project/h/htozg-dy-privatemc/pelai/root_make_eTnP_ntuple"
 
 mainOutputDir = '%s/%s' % (path, submitVersion)
 
