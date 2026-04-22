@@ -62,10 +62,8 @@ def setGoodParticlesMiniAOD(process, options):
         import EgammaAnalysis.TnPTreeProducer.electronsExtrasSUSY_cff  as eleSusyID
         eleSusyID.addSusyIDs( process, options )
         options['ELECTRON_COLL']        = "slimmedElectronsWithUserData"
-    proc = "PAT"# PAT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  only your using /EGamma0/Run2024F-MINIv6NANOv15-v1/MINIAOD
-    if options['isMC']:
-        proc = "PAT"
-        ########################### common electron prob ############
+    rec_hit_process = ""
+    ########################### common electron prob ############
     process.eleVarHelper = cms.EDProducer("PatElectronVariableHelper",
                                           probes           = cms.InputTag(options['ELECTRON_COLL']),
                                           l1EGColl         = cms.InputTag('caloStage2Digis:EGamma'),
@@ -73,8 +71,8 @@ def setGoodParticlesMiniAOD(process, options):
                                           beamSpot         = cms.InputTag("offlineBeamSpot"),
                                           conversions      = cms.InputTag("reducedEgamma:reducedConversions"),
                                           pfCandidates     = cms.InputTag("packedPFCandidates"),
-                                          ebRecHits        = cms.InputTag("reducedEgamma","reducedEBRecHits",proc),
-                                          eeRecHits        = cms.InputTag("reducedEgamma","reducedEERecHits",proc),
+                                          ebRecHits        = cms.InputTag("reducedEgamma","reducedEBRecHits",rec_hit_process),
+                                          eeRecHits        = cms.InputTag("reducedEgamma","reducedEERecHits",rec_hit_process),
                                           rho_MiniIso     = cms.InputTag("fixedGridRhoFastjetAll"),
                                           rho_PFIso       = cms.InputTag("fixedGridRhoFastjetAll"),
                                           )
