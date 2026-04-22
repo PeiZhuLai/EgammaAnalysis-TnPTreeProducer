@@ -4,6 +4,27 @@ import FWCore.ParameterSet.Config as cms
 # Sequence to add lepton MVA
 #
 def leptonMvaSequence(process, options, tnpVars):
+    top_mva_weight_era = {
+      '2016': '16',
+      'UL2016preVFP': '16',
+      'UL2016postVFP': '16',
+      '2017': '17',
+      'UL2017': '17',
+      '2018': '18',
+      'UL2018': '18',
+      '2022': '22',
+      '2022preEE': '22',
+      '2022postEE': '22',
+      '2023': '23',
+      '2023preBPIX': '23',
+      '2023postBPIX': '23',
+      '2024': '24',
+      # No dedicated 2025 TOP lepton-MVA weights are available yet; reuse 2024.
+      '2025': '24',
+    }
+    if options['era'] not in top_mva_weight_era:
+      raise RuntimeError('No TOP lepton-MVA weight file configured for era %s' % options['era'])
+
     #
     # One difficulty with lepton mva's is that their input variables are dependent on jet variables, so we need JEC etc... to be in sync
     # By default we simply re-run the JEC and needed b-tag algorithms, to be sure they are in sync with the used global tag, assuming the training was also up to date
@@ -81,11 +102,9 @@ def leptonMvaSequence(process, options, tnpVars):
       debug                = cms.bool(False), # set to True if you want to sync with your analysis
     )
 
-    # RemoveStrings = ['20', 'UL', 'preVFP', 'postVFP']
-
     process.leptonMvaTOP = cms.EDProducer('LeptonMvaProducer',
       leptonMvaType        = cms.string("leptonMvaTOP"),
-      weightFile           = cms.FileInPath('EgammaAnalysis/TnPTreeProducer/data/el_TOP%s_BDTG.weights.xml' % (options['era'].replace('20', '').replace('UL', '').replace('preVFP','').replace('postVFP','').replace('preEE','').replace('postEE','').replace('preBPIX','').replace('postBPIX',''))),
+      weightFile           = cms.FileInPath('EgammaAnalysis/TnPTreeProducer/data/el_TOP%s_BDTG.weights.xml' % top_mva_weight_era[options['era']]),
       probes               = cms.InputTag('slimmedElectrons'),
       miniIsoChg           = cms.InputTag('isoForEle%s:miniIsoChg' % ('Spring15' if '2016' in options['era'] else 'Fall17')),
       miniIsoAll           = cms.InputTag('isoForEle%s:miniIsoAll' % ('Spring15' if '2016' in options['era'] else 'Fall17')),

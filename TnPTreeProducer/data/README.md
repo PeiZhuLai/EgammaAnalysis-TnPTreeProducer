@@ -17,6 +17,8 @@ Most recent training with best performance, valid for full Run II data.
 [2018](el_TOP18_BDTG.weights.xml)
 developer: Kyrill Skovpen [@kvskovpen](https://github.com/kskovpen)
 
+For `2025`, the configuration currently reuses `el_TOP24_BDTG.weights.xml` until dedicated 2025 weights are added.
+
 ## tZq/ttV lepton mva (as documented in TOP-18-008, TOP-18-009)
 Superseeded by the above one
 [2016](el_tZqTTV16_BDTG.weights.xml)
@@ -36,5 +38,4 @@ We therefore strongly recommend leptonMva analyzers to sync with their own analy
 The sync can easily be done by setting the debug flag to True in [python/leptonMva\_cff.py](python/leptonMva_cff.py). The leptonMva xml files
 are found in [data](data), and implementation of a new leptonMvaType can happen in the produce function in
 [plugins/LeptonMvaProducer.cc](plugins/LeptonMvaProducer.cc).
-
 
