@@ -30,7 +30,7 @@ registerOption('includeSUSY', False,    'Add also the variables used by SUSY')
 #registerOption('HLTname',     'reHLT',    'HLT process name (default HLT)', optionType=VarParsing.varType.string) # HLTname was HLT2 in now outdated reHLT samples
 registerOption('HLTname',     'HLT',    'HLT process name (default HLT)', optionType=VarParsing.varType.string) # HLTname was HLT2 in now outdated reHLT samples
 registerOption('GT',          'auto',   'Global Tag to be used', optionType=VarParsing.varType.string)
-registerOption('era',         '2018',   'Data-taking era: 2016, 2017, 2018, 2022, 2023, UL2017 or UL2018', optionType=VarParsing.varType.string)
+registerOption('era',         '2018',   'Data-taking era: 2016, 2017, 2018, 2022, 2023, 2024, 2025, UL2017 or UL2018', optionType=VarParsing.varType.string)
 registerOption('logLevel',    'INFO',   'Loglevel: could be DEBUG, INFO, WARNING, ERROR', optionType=VarParsing.varType.string)
 
 registerOption('L1Threshold',  0,       'Threshold for L1 matched objects', optionType=VarParsing.varType.int)
@@ -48,8 +48,9 @@ if varOptions.isAOD and varOptions.doTrigger:  log.warning('AOD is not supported
 if not varOptions.isAOD and varOptions.doRECO: log.warning('miniAOD is not supported for doRECO, please consider using AOD')
 
 from EgammaAnalysis.TnPTreeProducer.cmssw_version import isReleaseAbove
-if varOptions.era not in ['2016', '2017', '2018', '2022', '2023', 'UL2016preVFP', 'UL2016postVFP', 'UL2017', 'UL2018', '2022preEE', '2022postEE', '2023preBPIX', '2023postBPIX', '2024']: 
-  log.error('%s is not a valid era' % varOptions.era)
+valid_eras = ['2016', '2017', '2018', '2022', '2023', 'UL2016preVFP', 'UL2016postVFP', 'UL2017', 'UL2018', '2022preEE', '2022postEE', '2023preBPIX', '2023postBPIX', '2024', '2025']
+if varOptions.era not in valid_eras:
+  raise RuntimeError('%s is not a valid era. Valid choices: %s' % (varOptions.era, ', '.join(valid_eras)))
 #if ('UL' in varOptions.era)!=(isReleaseAbove(10, 6)):
   #log.error('Inconsistent release for era %s. Use CMSSW_10_6_X for UL and CMSSW_10_2_X for rereco' % varOptions.era)
 
@@ -126,10 +127,14 @@ if varOptions.GT == "auto":
     if options['era'] == '2023': options['GLOBALTAG'] = '130X_dataRun3_Prompt_v4' #update GT for 2023 from PDMV
     # if options['era'] == '2024': options['GLOBALTAG'] = '140X_dataRun3_Prompt_v2'#!!!!!!!!!for 2024B
     if options['era'] == '2024': options['GLOBALTAG'] = '140X_dataRun3_v20' #140X_dataRun3_v20
+    if options['era'] == '2025': options['GLOBALTAG'] = '150X_dataRun3_v8'
     
     # if options['era'] == '2024': options['GLOBALTAG'] = '140X_dataRun3_Prompt_v2'
 else:
   options['GLOBALTAG'] = varOptions.GT
+
+if 'GLOBALTAG' not in options:
+  raise RuntimeError('No automatic global tag configured for era %s (isMC=%s). Pass GT=... explicitly or add a mapping.' % (options['era'], options['isMC']))
 
 log.info('Globaltag: %s' % options['GLOBALTAG'])
 

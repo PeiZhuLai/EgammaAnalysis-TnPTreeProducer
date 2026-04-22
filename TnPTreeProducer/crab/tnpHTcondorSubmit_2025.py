@@ -14,8 +14,6 @@ doL1matching  = False
 defaultArgs   = ['doEleID=True','doPhoID=False','doTrigger=True']
 # path = "/eos/home-p/pelai/HZa/root_make_TnP_ntuple/"
 path = "/eos/project/h/htozg-dy-privatemc/pelai/root_make_EGM_TnP_ntuple"
-
-/eos/project/h/htozg-dy-privatemc/pelai/root_make_TnP_ntuple
 mainOutputDir = '%s%s' % (path, submitVersion)
 
 # Logging the current version of TnPTreeProducer here
@@ -72,7 +70,7 @@ def getLumiMask(era):
   elif era == '2024': 
     return 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/Cert_Collisions2024_378981_386951_Golden.json'
   elif era == '2025': 
-    return 'https://https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions25/Cert_Collisions2025_391658_398903_Golden.json'
+    return 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions25/Cert_Collisions2025_391658_398903_Golden.json'
   else:
     return None
 
