@@ -146,15 +146,41 @@ export X509_USER_PROXY=/afs/cern.ch/user/p/pelai/x509up_u175325
 # 获取参数
 INPUT_FILES=$1
 OUTPUT_FILE=$2
+LOCAL_WORKDIR="${_CONDOR_SCRATCH_DIR:-${TMPDIR:-$(pwd)}}"
+LOCAL_OUTPUT="$LOCAL_WORKDIR/$(basename "$OUTPUT_FILE")"
 
 # 调试信息
 echo "Starting job at: $(date)"
 echo "Input files: $INPUT_FILES"
 echo "Output file: $OUTPUT_FILE"
+echo "Local workdir: $LOCAL_WORKDIR"
+echo "Local output file: $LOCAL_OUTPUT"
 echo "Current directory: $(pwd)"
 echo "PATH: $PATH"
-# Run the analysis
-cmsRun {cmssw_base}/src/EgammaAnalysis/TnPTreeProducer/python/TnPTreeProducer_cfg.py {' '.join(args_list)} inputFiles=$1 outputFile=$2
+mkdir -p "$LOCAL_WORKDIR"
+rm -f "$LOCAL_OUTPUT"
+mkdir -p "$(dirname "$OUTPUT_FILE")"
+# Write locally first, then move to EOS to avoid ROOT basket write failures on EOS/FUSE.
+cmsRun {cmssw_base}/src/EgammaAnalysis/TnPTreeProducer/python/TnPTreeProducer_cfg.py {' '.join(args_list)} inputFiles=$1 outputFile="$LOCAL_OUTPUT"
+CMSRUN_STATUS=$?
+if [ $CMSRUN_STATUS -ne 0 ]; then
+  echo "cmsRun failed with status $CMSRUN_STATUS"
+  exit $CMSRUN_STATUS
+fi
+if [ ! -f "$LOCAL_OUTPUT" ]; then
+  echo "Local output file was not produced: $LOCAL_OUTPUT"
+  exit 1
+fi
+if [ -f "$OUTPUT_FILE" ]; then
+  echo "Removing existing output file: $OUTPUT_FILE"
+  rm -f "$OUTPUT_FILE"
+fi
+mv -f "$LOCAL_OUTPUT" "$OUTPUT_FILE"
+MOVE_STATUS=$?
+if [ $MOVE_STATUS -ne 0 ]; then
+  echo "Failed to move $LOCAL_OUTPUT to $OUTPUT_FILE"
+  exit $MOVE_STATUS
+fi
 '''
     
     job_script_path = f'{config_dir}/run_job.sh'

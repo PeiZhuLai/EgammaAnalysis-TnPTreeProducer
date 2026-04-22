@@ -437,5 +437,6 @@ process.p = cms.Path(
 
 process.TFileService = cms.Service(
     "TFileService", fileName = cms.string(options['OUTPUT_FILE_NAME']),
-    closeFileFast = cms.untracked.bool(True)
+    closeFileFast = cms.untracked.bool(True),
+    fileMode = cms.untracked.string('RECREATE')
     )
