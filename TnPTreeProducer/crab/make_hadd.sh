@@ -2,9 +2,9 @@
 # /eos/project/h/htozg-dy-privatemc/pelai/root_make_TnP_ntuple
 
 # baseInputDir=/eos/home-p/pelai/HZa/root_make_TnP_ntuple/eTnP_ntuple/2024
-baseInputDir2024=/eos/project/h/htozg-dy-privatemc/pelai/root_make_EGM_TnP_ntuple/2024
-baseInputDir2025=/eos/project/h/htozg-dy-privatemc/pelai/root_make_EGM_TnP_ntuple/2025
-baseOutputDir=/eos/project/h/htozg-dy-privatemc/pelai/root_merged_EGM_TnP_ntuple
+baseInputDir2024=/eos/project/h/htozg-dy-privatemc/pelai/root_make_eTnP_ntuple/eTnP_ntuple/2024
+baseInputDir2025=/eos/project/h/htozg-dy-privatemc/pelai/root_make_eTnP_ntuple/eTnP_ntuple/2025
+baseOutputDir=/eos/project/h/htozg-dy-privatemc/pelai/root_merged_eTnP_ntuple
 
 # DY_LO_2024
 mkdir -p "$baseOutputDir/mc/DY_LO_2024"
@@ -46,12 +46,12 @@ done
 # hadd -f "$baseOutputDir/data/Data_2024.root" "${files[@]}"
 
 # Data 2025
-dataRuns=(EGamma0_Run2024B EGamma0_Run2024E EGamma0_Run2024H \
+dataRuns=(EGamma0_Run2025B EGamma0_Run2025E EGamma0_Run2025H \
 
 files=()
 
 for run in "${dataRuns[@]}"; do
-    files+=("$baseInputDir2024/data/$run/"*.root)
+    files+=("$baseInputDir2025/data/$run/"*.root)
 done
 
 # mkdir -p "$baseOutputDir/data"
