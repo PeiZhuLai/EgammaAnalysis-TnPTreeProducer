@@ -9,8 +9,11 @@ baseOutputDir=/eos/project/h/htozg-dy-privatemc/pelai/root_merged_eTnP_ntuple
 hadd_sample() {
     local input_dir="$1"
     local output_file="$2"
+    local take_divisor="${3:-}"
     local output_dir
     local files=()
+    local n_files
+    local n_take
 
     if [[ ! -d "$input_dir" ]]; then
         echo "WARNING: missing input directory: $input_dir" >&2
@@ -21,6 +24,16 @@ hadd_sample() {
     if (( ${#files[@]} == 0 )); then
         echo "WARNING: no ROOT files found in $input_dir" >&2
         return 0
+    fi
+
+    if [[ -n "$take_divisor" ]]; then
+        n_files=${#files[@]}
+        n_take=$(( n_files / take_divisor ))
+        if (( n_take == 0 )); then
+            echo "WARNING: only $n_files ROOT files found in $input_dir; n/$take_divisor is 0" >&2
+            return 0
+        fi
+        files=("${files[@]:0:n_take}")
     fi
 
     output_dir=$(dirname "$output_file")
@@ -68,8 +81,9 @@ hadd_data() {
 }
 
 # MC samples listed under 2024/mc in eTnP_ntuple_structure.txt.
-hadd_sample "$baseInputDir2024/mc/DY_LO_2024" "$baseOutputDir/mc/DY_LO_2024/DY_LO_2024.root"
-hadd_sample "$baseInputDir2024/mc/DY_NLO_2024" "$baseOutputDir/mc/DY_NLO_2024/DY_NLO_2024.root"
+# For DY samples, use the first n/10 files after sorting all ROOT files in each directory.
+hadd_sample "$baseInputDir2024/mc/DY_LO_2024" "$baseOutputDir/mc/DY_LO_2024/DY_LO_2024.root" 10
+hadd_sample "$baseInputDir2024/mc/DY_NLO_2024" "$baseOutputDir/mc/DY_NLO_2024/DY_NLO_2024.root" 10
 
 # Data samples listed under 2024/data in eTnP_ntuple_structure.txt.
 dataRuns2024=(
