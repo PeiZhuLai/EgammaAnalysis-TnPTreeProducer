@@ -11,6 +11,10 @@ ZVariablesToStore = cms.PSet(
     # abseta = cms.string("abs(eta)"),
     # pt  = cms.string("pt"),
     mass  = cms.string("mass"),
+    lead_el_pt       = cms.string("(daughter(0).pt >= daughter(1).pt) ? daughter(0).pt : daughter(1).pt"),
+    sublead_el_pt    = cms.string("(daughter(0).pt >= daughter(1).pt) ? daughter(1).pt : daughter(0).pt"),
+    lead_el_sc_et    = cms.string("(daughter(0).pt >= daughter(1).pt) ? daughter(0).superCluster.energy*sin(daughter(0).superClusterPosition.theta) : daughter(1).superCluster.energy*sin(daughter(1).superClusterPosition.theta)"),
+    sublead_el_sc_et = cms.string("(daughter(0).pt >= daughter(1).pt) ? daughter(1).superCluster.energy*sin(daughter(1).superClusterPosition.theta) : daughter(0).superCluster.energy*sin(daughter(0).superClusterPosition.theta)"),
     )   
 
 SCProbeVariablesToStore = cms.PSet(
@@ -333,4 +337,3 @@ def setupTnPVariablesForAOD():
     # del process.tnpEleTrig.pairVariables.abseta
     # del process.tnpEleTrig.pairVariables.pt
     # del process.tnpEleTrig.pairVariables.mass
-
