@@ -404,9 +404,13 @@ if options['DoTrigger']                       : process.cand_sequence += process
 if options['DoRECO']                          : process.cand_sequence += process.sc_sequence
 
 process.tnpPairs_sequence = cms.Sequence()
-if options['DoTrigger'] : process.tnpPairs_sequence *= process.tnpPairingEleHLT
+if options['DoTrigger'] :
+    process.tnpPairs_sequence *= process.tnpPairingEleHLT
+    process.tnpPairs_sequence *= process.tnpEleHLTPairVarHelper
 if options['DoRECO']    : process.tnpPairs_sequence *= process.tnpPairingEleRec
-if options['DoEleID']   : process.tnpPairs_sequence *= process.tnpPairingEleIDs
+if options['DoEleID']   :
+    process.tnpPairs_sequence *= process.tnpPairingEleIDs
+    process.tnpPairs_sequence *= process.tnpEleIDPairVarHelper
 if options['DoPhoID']   : process.tnpPairs_sequence *= process.tnpPairingPhoIDs
 
 ##########################################################################
@@ -423,6 +427,11 @@ process.tnpEleTrig = cms.EDAnalyzer("TagProbeFitTreeProducer",
 
 for flag in options['HLTFILTERSTOMEASURE']:
   setattr(process.tnpEleTrig.flags, flag, cms.InputTag(flag))
+
+process.tnpEleTrig.pairVariables.lead_el_pt       = cms.InputTag("tnpEleHLTPairVarHelper", "leadPt")
+process.tnpEleTrig.pairVariables.sublead_el_pt    = cms.InputTag("tnpEleHLTPairVarHelper", "subleadPt")
+process.tnpEleTrig.pairVariables.lead_el_sc_et    = cms.InputTag("tnpEleHLTPairVarHelper", "leadScEt")
+process.tnpEleTrig.pairVariables.sublead_el_sc_et = cms.InputTag("tnpEleHLTPairVarHelper", "subleadScEt")
 
 
 process.tnpEleReco = cms.EDAnalyzer("TagProbeFitTreeProducer",
@@ -447,6 +456,11 @@ process.tnpEleIDs = cms.EDAnalyzer("TagProbeFitTreeProducer",
                                     allProbes     = cms.InputTag("probeEle"),
                                     flags         = cms.PSet(),
                                     )
+
+process.tnpEleIDs.pairVariables.lead_el_pt       = cms.InputTag("tnpEleIDPairVarHelper", "leadPt")
+process.tnpEleIDs.pairVariables.sublead_el_pt    = cms.InputTag("tnpEleIDPairVarHelper", "subleadPt")
+process.tnpEleIDs.pairVariables.lead_el_sc_et    = cms.InputTag("tnpEleIDPairVarHelper", "leadScEt")
+process.tnpEleIDs.pairVariables.sublead_el_sc_et = cms.InputTag("tnpEleIDPairVarHelper", "subleadScEt")
 
 # ID's to store in the electron ID and trigger tree
 # Simply look which probeEleX modules were made in egmElectronIDModules_cff.py and convert them into a passingX boolean in the tree 

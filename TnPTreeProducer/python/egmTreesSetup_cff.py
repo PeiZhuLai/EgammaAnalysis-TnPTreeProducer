@@ -134,6 +134,9 @@ def setTagsProbes(process, options):
                                         checkCharge = cms.bool(True),
                                         cut = masscut,
                                         )
+    process.tnpEleHLTPairVarHelper = cms.EDProducer("ElectronPairVariableHelper",
+                                        pairs = cms.InputTag("tnpPairingEleHLT"),
+                                        )
 
     process.tnpPairingEleRec             = process.tnpPairingEleHLT.clone()
     process.tnpPairingEleRec.decay       = cms.string("tagEle probeSC" )
@@ -142,6 +145,9 @@ def setTagsProbes(process, options):
     process.tnpPairingEleIDs             = process.tnpPairingEleHLT.clone()
     process.tnpPairingEleIDs.decay       = cms.string("tagEle probeEle")
     process.tnpPairingEleIDs.checkCharge = cms.bool(False)
+    process.tnpEleIDPairVarHelper = process.tnpEleHLTPairVarHelper.clone(
+                                        pairs = cms.InputTag("tnpPairingEleIDs"),
+                                        )
 
     process.tnpPairingPhoIDs             = process.tnpPairingEleHLT.clone()
     process.tnpPairingPhoIDs.decay       = cms.string("tagEle probePho")
@@ -235,4 +241,3 @@ def customize( tnpTree, options ):
         tnpTree.PUWeightSrc = cms.InputTag("pileupReweightingProducer","pileupWeights")
     else:
         tnpTree.isMC = cms.bool( False )
-

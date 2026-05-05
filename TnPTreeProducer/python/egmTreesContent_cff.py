@@ -13,14 +13,6 @@ ZVariablesToStore = cms.PSet(
     mass  = cms.string("mass"),
     )   
 
-ElePairVariablesToStore = cms.PSet(
-    ZVariablesToStore,
-    lead_el_pt       = cms.string("? daughter(0).pt >= daughter(1).pt ? daughter(0).pt : daughter(1).pt"),
-    sublead_el_pt    = cms.string("? daughter(0).pt >= daughter(1).pt ? daughter(1).pt : daughter(0).pt"),
-    lead_el_sc_et    = cms.string("? daughter(0).pt >= daughter(1).pt ? daughter(0).superCluster.energy*sin(daughter(0).superClusterPosition.theta) : daughter(1).superCluster.energy*sin(daughter(1).superClusterPosition.theta)"),
-    sublead_el_sc_et = cms.string("? daughter(0).pt >= daughter(1).pt ? daughter(1).superCluster.energy*sin(daughter(1).superClusterPosition.theta) : daughter(0).superCluster.energy*sin(daughter(0).superClusterPosition.theta)"),
-    )   
-
 SCProbeVariablesToStore = cms.PSet(
     sc_eta    = cms.string("eta"),
     sc_phi    = cms.string("phi"),
@@ -265,7 +257,7 @@ CommonStuffForGsfElectronProbe = cms.PSet(
     addEventVariablesInfo   =  cms.bool(False),
 
     variables        = cms.PSet(EleProbeVariablesToStore),
-    pairVariables    =  cms.PSet(ElePairVariablesToStore),
+    pairVariables    =  cms.PSet(ZVariablesToStore),
     tagVariables     =  cms.PSet(TagVariablesToStore),
 
     addRunLumiInfo   = cms.bool (True),
