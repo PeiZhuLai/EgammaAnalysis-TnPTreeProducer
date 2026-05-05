@@ -11,10 +11,14 @@ ZVariablesToStore = cms.PSet(
     # abseta = cms.string("abs(eta)"),
     # pt  = cms.string("pt"),
     mass  = cms.string("mass"),
-    lead_el_pt       = cms.string("(daughter(0).pt >= daughter(1).pt) ? daughter(0).pt : daughter(1).pt"),
-    sublead_el_pt    = cms.string("(daughter(0).pt >= daughter(1).pt) ? daughter(1).pt : daughter(0).pt"),
-    lead_el_sc_et    = cms.string("(daughter(0).pt >= daughter(1).pt) ? daughter(0).superCluster.energy*sin(daughter(0).superClusterPosition.theta) : daughter(1).superCluster.energy*sin(daughter(1).superClusterPosition.theta)"),
-    sublead_el_sc_et = cms.string("(daughter(0).pt >= daughter(1).pt) ? daughter(1).superCluster.energy*sin(daughter(1).superClusterPosition.theta) : daughter(0).superCluster.energy*sin(daughter(0).superClusterPosition.theta)"),
+    )   
+
+ElePairVariablesToStore = cms.PSet(
+    ZVariablesToStore,
+    lead_el_pt       = cms.string("? daughter(0).pt >= daughter(1).pt ? daughter(0).pt : daughter(1).pt"),
+    sublead_el_pt    = cms.string("? daughter(0).pt >= daughter(1).pt ? daughter(1).pt : daughter(0).pt"),
+    lead_el_sc_et    = cms.string("? daughter(0).pt >= daughter(1).pt ? daughter(0).superCluster.energy*sin(daughter(0).superClusterPosition.theta) : daughter(1).superCluster.energy*sin(daughter(1).superClusterPosition.theta)"),
+    sublead_el_sc_et = cms.string("? daughter(0).pt >= daughter(1).pt ? daughter(1).superCluster.energy*sin(daughter(1).superClusterPosition.theta) : daughter(0).superCluster.energy*sin(daughter(0).superClusterPosition.theta)"),
     )   
 
 SCProbeVariablesToStore = cms.PSet(
@@ -261,7 +265,7 @@ CommonStuffForGsfElectronProbe = cms.PSet(
     addEventVariablesInfo   =  cms.bool(False),
 
     variables        = cms.PSet(EleProbeVariablesToStore),
-    pairVariables    =  cms.PSet(ZVariablesToStore),
+    pairVariables    =  cms.PSet(ElePairVariablesToStore),
     tagVariables     =  cms.PSet(TagVariablesToStore),
 
     addRunLumiInfo   = cms.bool (True),
@@ -286,9 +290,11 @@ CommonStuffForGsfElectronProbe = cms.PSet(
 
 CommonStuffForPhotonProbe = CommonStuffForGsfElectronProbe.clone()
 CommonStuffForPhotonProbe.variables = cms.PSet(PhoProbeVariablesToStore)
+CommonStuffForPhotonProbe.pairVariables = cms.PSet(ZVariablesToStore)
 
 CommonStuffForSuperClusterProbe = CommonStuffForGsfElectronProbe.clone()
 CommonStuffForSuperClusterProbe.variables = cms.PSet(SCProbeVariablesToStore)
+CommonStuffForSuperClusterProbe.pairVariables = cms.PSet(ZVariablesToStore)
 
 
 def getTnPVariablesForMCTruth(isMC=True):
